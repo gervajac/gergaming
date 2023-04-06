@@ -33,7 +33,7 @@ const SideBar: React.FC<SideBarProps> = () => {
 
   return (
     <>
-      <div className="bg-gray-900 xl:hidden flex justify-between w-full p-6 items-center"></div>
+      <div className="bg-gray-900 xl:hidden flex justify-between p-6 items-center"></div>
       <div
         id="Main"
         className="h-screen transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start w-full sm:w-64 bg-gray-900 flex-col"
@@ -108,7 +108,7 @@ const SideBar: React.FC<SideBarProps> = () => {
         </div>
         <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
           <button
-            onClick={() => showMenu1(false)}
+            // onClick={() => showMenu1(false)}
             className="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-5 space-x-14  "
           >
             <p className="text-sm leading-5  uppercase">Categorias</p>
