@@ -43,7 +43,6 @@ export const Provider = ({children}: props) => {
 const filterPriceDesc = async () => {
     try{
         const resp = await axios.get("http://localhost:9000/api/itemsp?sort=price,desc")
-        console.log(resp, "resp funciton")
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
@@ -53,8 +52,36 @@ const filterPriceDesc = async () => {
 }
 } 
 
+const filterByCategory = async (TYPE) => {
+    console.log(TYPE, "typeeee")
+    try{
+        const resp = await axios.get(`http://localhost:9000/api/itemsp?category=${TYPE}`)
+        console.log(resp, "fetchresp")
+        return dispatch ({
+            type: "FILTER_BY_CATEGORY",
+            payload: resp.data.items
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
+const searchFunction = async (TYPE) => {
+    console.log(TYPE, "typeeee")
+    try{
+        const resp = await axios.get(`http://localhost:9000/api/itemsp?search=${TYPE}`)
+        console.log(resp, "fetchresp")
+        return dispatch ({
+            type: "FILTER_BY_CATEGORY",
+            payload: resp.data.items
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 return (
-    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc}}>
+    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction}}>
         {children}
     </Context.Provider>
 )

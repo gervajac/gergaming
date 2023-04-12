@@ -14,7 +14,7 @@ export interface SideBarProps {}
 
 const SideBar: React.FC<SideBarProps> = () => {
 
-  const {state, filterPriceAsc, filterPriceDesc} = useContext(Context)
+  const {state, filterPriceAsc, filterPriceDesc, filterByCategory} = useContext(Context)
 
 
   let icon1 = document.getElementById("icon1");
@@ -48,7 +48,22 @@ const SideBar: React.FC<SideBarProps> = () => {
     filterPriceDesc()
   }
 
-  console.log(state.items, "sstate.items")
+  const handleFilterCategory = (e) => {
+    e.preventDefault();
+    const index = e.nativeEvent.target.innerHTML;
+    console.log(index, "este es indexxx")
+    if(index === "Procesadores")
+      filterByCategory("cpu")
+      if(index === "Placas de Video")
+      filterByCategory("gpu")
+      if(index === "Motherboards")
+      filterByCategory("motherboard")
+      if(index === "Periféricos")
+      filterByCategory("perifericos")
+      if(index === "Memorias RAM")
+      filterByCategory("ram")
+
+  }
 
   return (
     <>
@@ -127,27 +142,40 @@ const SideBar: React.FC<SideBarProps> = () => {
             id="menu1"
             className="justify-start hidden  flex-col w-full md:w-auto items-start pb-1 "
           >
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button
+            value="cpu"
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={mother}></img>
               <p className="text-base leading-4  ">Procesadores</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={gpu}></img>
               <p className="text-base leading-4  ">Placas de Video</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-full md:w-52">
+            <button
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-full md:w-52">
               <img src={motherb}></img>
               <p className="text-base leading-4  ">Motherboards</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={perif}></img>
               <p className="text-base leading-4  ">Periféricos</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={fuente}></img>
               <p className="text-base leading-4  ">Fuentes</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button
+            onClick={(p) => handleFilterCategory(p)} 
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={ram}></img>
               <p className="text-base leading-4  ">Memorias RAM</p>
             </button>

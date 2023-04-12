@@ -4,6 +4,8 @@ type ItemAction =
                   {type: "GET_ITEMS", payload: Item}
                  | {type: "FILTER_PRICE_ASC", payload: Item}
                  | {type: "FILTER_PRICE_DESC", payload: Item}
+                 | {type: "FILTER_BY_CATEGORY", payload: Item}
+                 | {type: "SEARCH", payload: Item}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -23,6 +25,16 @@ export const itemReducer = (state: any, action: ItemAction) => {
             }
         
         case "FILTER_PRICE_DESC": 
+            return{
+                ...state,
+                items: payload
+            }
+            case "FILTER_BY_CATEGORY": 
+            return{
+                ...state,
+                items: payload
+            }
+            case "SEARCH": 
             return{
                 ...state,
                 items: payload
