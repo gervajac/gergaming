@@ -27,10 +27,37 @@ export const Provider = ({children}: props) => {
         }   
     }
 
+    const filterPriceAsc = async () => {
+        try{
+            const resp = await axios.get("http://localhost:9000/api/itemsp?sort=price")
+            console.log(resp, "resp funciton")
+            return dispatch ({
+                type: "FILTER_PRICE_ASC",
+                payload: resp.data.items
+            })
+    } catch(err) {
+        console.log(err);
+    }
+} 
+
+const filterPriceDesc = async () => {
+    try{
+        const resp = await axios.get("http://localhost:9000/api/itemsp?sort=price,desc")
+        console.log(resp, "resp funciton")
+        return dispatch ({
+            type: "FILTER_PRICE_DESC",
+            payload: resp.data.items
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 return (
-    <Context.Provider value={{getItems, state}}>
+    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc}}>
         {children}
     </Context.Provider>
 )
+
 
 }

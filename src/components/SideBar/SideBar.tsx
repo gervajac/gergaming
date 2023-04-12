@@ -7,30 +7,48 @@ import motherb from "../../assets/mother.svg";
 import ram from "../../assets/ramm.svg";
 import asc from "../../assets/sorta.svg";
 import desc from "../../assets/sortd.svg";
+import { useContext, useEffect } from "react";
+import { Context } from "../context/Context";
 
 export interface SideBarProps {}
 
 const SideBar: React.FC<SideBarProps> = () => {
 
+  const {state, filterPriceAsc, filterPriceDesc} = useContext(Context)
 
-let icon1 = document.getElementById("icon1");
-let menu1 = document.getElementById("menu1");
-const showMenu1 = (flag) => {
-  if (flag) {
-    icon1.classList.toggle("rotate-180");
-    menu1.classList.toggle("hidden");
+
+  let icon1 = document.getElementById("icon1");
+  let menu1 = document.getElementById("menu1");
+  const showMenu1 = (flag) => {
+    if (flag) {
+      icon1?.classList.toggle("rotate-180");
+      menu1?.classList.toggle("hidden");
+    }
+  };
+
+  let icon2 = document.getElementById("icon2");
+  let menu2 = document.getElementById("menu2");
+
+  const showMenu2 = (flag) => {
+    if (flag) {
+      icon2?.classList.toggle("rotate-180");
+      menu2?.classList.toggle("hidden");
+    }
+  };
+
+  // useEffect(() => {
+  //   filterPriceAsc()
+  // }, [])
+
+  const handleSortAsc = () => {
+    filterPriceAsc()
   }
-};
 
-let icon2 = document.getElementById("icon2");
-let menu2 = document.getElementById("menu2");
-
-const showMenu2 = (flag) => {
-  if (flag) {
-    icon2.classList.toggle("rotate-180");
-    menu2.classList.toggle("hidden");
+  const handleSortDesc = () => {
+    filterPriceDesc()
   }
-};
+
+  console.log(state.items, "sstate.items")
 
   return (
     <>
@@ -80,7 +98,6 @@ const showMenu2 = (flag) => {
             </svg>
             <p className="text-base leading-4 ">FILTRA POR</p>
           </button>
-
         </div>
         <div className="flex flex-col justify-start items-center   px-6 border-b border-gray-600 w-full  ">
           <button
@@ -164,23 +181,25 @@ const showMenu2 = (flag) => {
             id="menu2"
             className="hidden justify-start  flex-col w-full md:w-auto items-start pb-1 "
           >
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button 
+            onClick={() => handleSortAsc()}
+            value="asc"
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={desc}></img>
               <p className="text-base leading-4  ">Ascendente</p>
             </button>
-            <button className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
+            <button 
+            onClick={() => handleSortDesc()}
+            value="desc"
+            className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52">
               <img src={asc}></img>
               <p className="text-base leading-4  ">Descendente</p>
             </button>
           </div>
         </div>
       </div>
-      
     </>
-    
   );
 };
-
-
 
 export default SideBar;
