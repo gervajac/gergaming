@@ -8,10 +8,8 @@ export interface WelcomeProps {}
 const Welcome : React.FC<WelcomeProps> = () => {
 	return (
 		<>
-		<NavBar/>
 		<SearchBar/>
 		<Carrousel/>
-		<Footer/>
 		</>
 	);
 };

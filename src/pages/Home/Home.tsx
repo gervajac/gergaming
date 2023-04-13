@@ -9,10 +9,8 @@ export interface HomeProps {}
 const Home : React.FC<HomeProps> = () => {
 	return (
 		<Provider>
-		<NavBar/>
 		<SearchBar/>
 		<CardSection/>
-		<Footer/>
 		</Provider>
 	)
 };

@@ -8,40 +8,40 @@ const NavBar: React.FC<NavBarProps> = () => {
     <section className="bg-gray-100 font-sans w-full m-0">
       <div className="flex flex-wrap place-items-center">
         <nav className="flex justify-between bg-gray-900 text-white w-screen">
-          <div className="px-5 xl:px-12 py-6 flex w-full items-center">
+          <div className="px-5 xl:px-12 py-6 flex w-full items-center italic ">
             <Link to="/welcome">
-              <a className="text-3xl font-bold font-heading" href="#">
-                GerGaming
+              <a className="text-3xl font-bold tracking-widest decoration-double font-serif border rounded-sm border-white p-2" href="#">
+                GERTECH 
               </a>
             </Link>
             <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
               <li>
                 <Link to="/welcome">
-                <a className="hover:text-gray-200" href="#">
+                <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
                   Home
                 </a>
                 </Link>
               </li>
               <li>
                 <Link to="/home">
-                  <a className="hover:text-gray-200" href="#">
+                  <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
                     Productos
                   </a>
                 </Link>
               </li>
               <li>
-                <a className="hover:text-gray-200" href="#">
+                <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
                   Marcas
                 </a>
               </li>
               <li>
-                <a className="hover:text-gray-200" href="#">
+                <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
                   Contacto
                 </a>
               </li>
             </ul>
             <div className="hidden xl:flex items-center space-x-5">
-              <a className="hover:text-gray-200" href="#">
+              <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -57,7 +57,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                   />
                 </svg>
               </a>
-              <a className="flex items-center hover:text-gray-200" href="#">
+              <a className="flex items-center focus:outline-none  focus:text-indigo-400  text-white" href="#">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"

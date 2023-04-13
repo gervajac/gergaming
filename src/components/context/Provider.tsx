@@ -16,10 +16,10 @@ export const Provider = ({children}: props) => {
 
     const getItems = async () => {
         try {
-            const resp = await axios.get("http://localhost:9000/api/itemsp");
+            const resp = await axios.get("http://localhost:9000/api/items");
             return dispatch ({
                 type: "GET_ITEMS",
-                payload: resp.data.items
+                payload: resp.data
             })
         }
         catch(err) {
@@ -27,10 +27,11 @@ export const Provider = ({children}: props) => {
         }   
     }
 
-    const filterPriceAsc = async () => {
+    const filterPriceAsc = async (category) => {
+        console.log(category, "CATEGORIA QUE LE LLEGA AL ACTION")
         try{
-            const resp = await axios.get("http://localhost:9000/api/itemsp?sort=price")
-            console.log(resp, "resp funciton")
+            const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`)  : await axios.get("http://localhost:9000/api/itemsp?sort=price") 
+            console.log(resp, "RESPUESTA")
             return dispatch ({
                 type: "FILTER_PRICE_ASC",
                 payload: resp.data.items
@@ -40,9 +41,9 @@ export const Provider = ({children}: props) => {
     }
 } 
 
-const filterPriceDesc = async () => {
+const filterPriceDesc = async (category) => {
     try{
-        const resp = await axios.get("http://localhost:9000/api/itemsp?sort=price,desc")
+        const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`)  : await axios.get("http://localhost:9000/api/itemsp?sort=price,desc") 
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
