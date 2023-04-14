@@ -7,6 +7,7 @@ export type ContextProps = {
     filterPriceDesc: any,
     filterByCategory: any,
     searchFunction: any,
+    getItemDetails: any
 }
 
 export const Context = createContext<ContextProps>({} as ContextProps);

@@ -4,7 +4,8 @@ import { itemReducer } from "./Reducer";
 import axios from "axios";
 
 const INITIAL_STATE = {
-    items: []
+    items: [],
+    details: {}
 }
 
 interface props {
@@ -54,7 +55,6 @@ const filterPriceDesc = async (category) => {
 } 
 
 const filterByCategory = async (TYPE) => {
-    console.log(TYPE, "typeeee")
     try{
         const resp = await axios.get(`http://localhost:9000/api/itemsp?category=${TYPE}`)
         console.log(resp, "fetchresp")
@@ -68,7 +68,6 @@ const filterByCategory = async (TYPE) => {
 } 
 
 const searchFunction = async (TYPE) => {
-    console.log(TYPE, "typeeee")
     try{
         const resp = await axios.get(`http://localhost:9000/api/itemsp?search=${TYPE}`)
         console.log(resp, "fetchresp")
@@ -81,8 +80,21 @@ const searchFunction = async (TYPE) => {
 }
 } 
 
+const getItemDetails = async (id) => {
+    try{
+        const resp = await axios.get(`http://localhost:9000/api/item/${id}`)
+        console.log(resp, "fetchresp")
+        return dispatch ({
+            type: "GET_ITEM_DETAILS",
+            payload: resp.data
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 return (
-    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction}}>
+    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails}}>
         {children}
     </Context.Provider>
 )

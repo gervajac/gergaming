@@ -6,6 +6,7 @@ type ItemAction =
                  | {type: "FILTER_PRICE_DESC", payload: Item}
                  | {type: "FILTER_BY_CATEGORY", payload: Item}
                  | {type: "SEARCH", payload: Item}
+                 | {type: "GET_ITEM_DETAILS", payload: Item}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -38,6 +39,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
             return{
                 ...state,
                 items: payload
+            }
+            case "GET_ITEM_DETAILS": 
+            return{
+                ...state,
+                details: payload
             }
     }
 }               
