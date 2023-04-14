@@ -1,33 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
+
+  let location = useLocation();
+
+  const actualLocation = location.pathname
+
+
   return (
     <section className="bg-gray-100 font-sans w-full m-0">
       <div className="flex flex-wrap place-items-center">
         <nav className="flex justify-between bg-gray-900 text-white w-screen">
           <div className="px-5 xl:px-12 py-6 flex w-full items-center italic ">
-            <Link to="/welcome">
-              <a className="text-3xl font-bold tracking-widest decoration-double font-serif border rounded-sm border-white p-2" href="#">
+              <a className="text-3xl font-bold tracking-widest decoration-double font-serif border rounded-sm border-white p-2" href="/welcome">
                 GERTECH 
               </a>
-            </Link>
             <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-              <li>
-                <Link to="/welcome">
-                <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
+              <li> 
+                <a className={actualLocation === "/welcome" ? "focus:outline-none text-indigo-400" : "focus:outline-none text-white"} href="/welcome">
                   Home
                 </a>
-                </Link>
               </li>
               <li>
-                <Link to="/home">
-                  <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
+                  <a className={actualLocation === "/home" ? "focus:outline-none text-indigo-400" : "focus:outline-none text-white"} href="/home">
                     Productos
                   </a>
-                </Link>
               </li>
               <li>
                 <a className="focus:outline-none  focus:text-indigo-400  text-white" href="#">
@@ -57,7 +58,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                   />
                 </svg>
               </a>
-              <a className="flex items-center focus:outline-none  focus:text-indigo-400  text-white" href="#">
+              <a className={actualLocation === "/cart" ? "focus:outline-none text-indigo-400" : "focus:outline-none text-white"} href="/cart">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"

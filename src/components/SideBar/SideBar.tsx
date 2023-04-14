@@ -68,10 +68,10 @@ const SideBar: React.FC<SideBarProps> = () => {
 
   return (
     <>
-      <div className="bg-gray-900 xl:hidden flex justify-between p-6 items-center font-sans italic"></div>
+     
       <div
         id="Main"
-        className="h-screen transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start w-full sm:w-64 bg-gray-900 flex-col"
+        className="transform max-h-full  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start w-full sm:w-64 bg-gray-900 flex-col"
       >
         <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full bg-gray-900 border-b space-y-3 pb-5 ">
           <button className="flex justify-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">

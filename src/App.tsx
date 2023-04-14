@@ -3,6 +3,8 @@ import { Welcome } from "./pages/Welcome";
 import { NavBar } from "./components/NavBar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Footer } from "./components/Footer";
+import { Cart } from "./pages/Cart";
+import { Carrousel } from "./components/Carrousel";
 
 function App() {
   return (
@@ -18,7 +20,12 @@ function App() {
         path="/welcome"
         element={<Welcome/>}
       />
+            <Route
+        path="/cart"
+        element={<Cart/>}
+      />
     </Routes>
+    <Carrousel/>
     <Footer/>
     </BrowserRouter>
   );
