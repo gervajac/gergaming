@@ -5,7 +5,8 @@ import axios from "axios";
 
 const INITIAL_STATE = {
     items: [],
-    details: {}
+    details: {},
+    cart: []
 }
 
 interface props {
@@ -93,8 +94,19 @@ const getItemDetails = async (id) => {
 }
 } 
 
+const addItemToCart = async (item) => {
+    try{
+        return dispatch ({
+            type: "ADD_ITEM_TO_CART",
+            payload: item
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 return (
-    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails}}>
+    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart}}>
         {children}
     </Context.Provider>
 )
