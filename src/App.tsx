@@ -6,10 +6,12 @@ import { Footer } from "./components/Footer";
 import { Cart } from "./pages/Cart";
 import { Carrousel } from "./components/Carrousel";
 import { DetailPage } from "./pages/DetailPage";
+import { Provider } from "./components/context/Provider";
 
 function App() {
   return (
     <BrowserRouter>
+    <Provider>
       <NavBar />
       <Routes>
         <Route path="/home" element={<Home />} />
@@ -19,6 +21,7 @@ function App() {
       </Routes>
       <Carrousel />
       <Footer />
+      </Provider>
     </BrowserRouter>
   );
 }

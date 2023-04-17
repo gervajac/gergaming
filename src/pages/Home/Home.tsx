@@ -8,10 +8,11 @@ export interface HomeProps {}
 
 const Home : React.FC<HomeProps> = () => {
 	return (
-		<Provider>
+		<>
 		<SearchBar/>
 		<CardSection/>
-		</Provider>
+		</>
+
 	)
 };
 

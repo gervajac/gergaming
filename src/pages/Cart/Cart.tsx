@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Context } from '../../components/context/Context';
 export interface CartProps {}
 
 const Cart : React.FC<CartProps> = () => {
+
+
+const {state} = useContext(Context)
+
+console.log(state, "carrito")
+
+
+
 	return (
 		<div className="h-screen bg-gray-100 pt-20">
     <h1 className="mb-10 text-center text-2xl font-bold">Carrito de Compras</h1>
@@ -17,7 +26,7 @@ const Cart : React.FC<CartProps> = () => {
             <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
               <div className="flex items-center border-gray-100">
                 <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"> - </span>
-                <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value="2" min="1" />
+                <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" min="1" />
                 <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"> + </span>
               </div>
               <div className="flex items-center space-x-4">

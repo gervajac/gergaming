@@ -15,7 +15,6 @@ export const itemReducer = (state: any, action: ItemAction) => {
 
     switch(type) {
         case "GET_ITEMS":
-            console.log(payload, "PAYLOAD")
             return {
                 ...state,
                 items: payload

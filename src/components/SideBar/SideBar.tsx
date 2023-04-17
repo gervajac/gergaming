@@ -14,7 +14,7 @@ export interface SideBarProps {}
 
 const SideBar: React.FC<SideBarProps> = () => {
 
-  const {state, filterPriceAsc, filterPriceDesc, filterByCategory} = useContext(Context)
+  const {filterPriceAsc, filterPriceDesc, filterByCategory} = useContext(Context)
   const [category, setCategory] = useState("")
 
 
@@ -64,7 +64,6 @@ const SideBar: React.FC<SideBarProps> = () => {
       filterByCategory("ram") && setCategory("ram")
   }
 
-  console.log(category, "esta es la categoria filtrada")
 
   return (
     <>

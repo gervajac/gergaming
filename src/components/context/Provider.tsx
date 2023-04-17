@@ -94,7 +94,7 @@ const getItemDetails = async (id) => {
 }
 } 
 
-const addItemToCart = async (item) => {
+const addItemToCart = (item) => {
     try{
         return dispatch ({
             type: "ADD_ITEM_TO_CART",
