@@ -5,8 +5,10 @@ import axios from "axios";
 
 const INITIAL_STATE = {
     items: [],
+    allItems: [],
     details: {},
-    cart: []
+    cart: [],
+    
 }
 
 interface props {
@@ -28,11 +30,23 @@ export const Provider = ({children}: props) => {
             console.log(err);
         }   
     }
+    const getAllItems = async () => {
+        try {
+            const resp = await axios.get("http://localhost:9000/api/items");
+            return dispatch ({
+                type: "GET_ALL_ITEMS",
+                payload: resp.data
+            })
+        }
+        catch(err) {
+            console.log(err);
+        }   
+    }
 
     const filterPriceAsc = async (category) => {
         console.log(category, "CATEGORIA QUE LE LLEGA AL ACTION")
         try{
-            const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`)  : await axios.get("http://localhost:9000/api/itemsp?sort=price") 
+            const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price") 
             console.log(resp, "RESPUESTA")
             return dispatch ({
                 type: "FILTER_PRICE_ASC",
@@ -45,7 +59,8 @@ export const Provider = ({children}: props) => {
 
 const filterPriceDesc = async (category) => {
     try{
-        const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`)  : await axios.get("http://localhost:9000/api/itemsp?sort=price,desc") 
+        const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price,desc") 
+        console.log(resp, "fetchresp")
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
@@ -95,6 +110,7 @@ const getItemDetails = async (id) => {
 } 
 
 const addItemToCart = (item) => {
+    console.log(item, "payload q le llega al additemtocart")
     try{
         return dispatch ({
             type: "ADD_ITEM_TO_CART",
@@ -105,8 +121,20 @@ const addItemToCart = (item) => {
 }
 } 
 
+const deleteItemOfCart = (id) => {
+
+    try {
+        return dispatch({
+            type: "DELETE_ITEM_OF_CART",
+            payload: id
+        })
+    } catch(err) {
+        console.log(err)
+    }
+}
+
 return (
-    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart}}>
+    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart}}>
         {children}
     </Context.Provider>
 )

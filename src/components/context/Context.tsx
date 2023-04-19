@@ -8,7 +8,9 @@ export type ContextProps = {
     filterByCategory: any,
     searchFunction: any,
     getItemDetails: any,
-    addItemToCart: any
+    addItemToCart: any,
+    getAllItems: any,
+    deleteItemOfCart: any,
 }
 
 export const Context = createContext<ContextProps>({} as ContextProps);
