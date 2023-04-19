@@ -18,9 +18,9 @@ const CardSection: React.FC<CardSectionProps> = () => {
 
   return (
     <>
-      <div className="flex w-full max-h-max mt-1 bg-gray-300">
+      <div className="flex  max-h-max mt-1 bg-gray-300 px-12">
         <SideBar />
-        <div className="flex w-4/5 justify-between flex-wrap">
+        <div className="flex justify-between flex-wrap">
           {state.items.map((e: any) => {
             return (
               <Card

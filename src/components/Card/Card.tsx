@@ -1,6 +1,7 @@
 import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { Context } from "../context/Context";
+import { Link } from "react-router-dom";
 import { Item } from "../../interfaces/interfaces";
 export interface CardProps {}
 
@@ -16,32 +17,33 @@ const Card: React.FC<Item> = ({
 
 
   const handleAddToCart = (id) => {
+    console.log(id, "el otro ids")
     addItemToCart(id);
   };
 
 
   return (
-    <div className="flex flex-col justify-between max-w-[250px] m-4 h-[400px] max-w-screen border-gray-900 border-solid rounded border bg-white shadow">
+    <div className="flex flex-row justify-between pl-1 max-w-[500px] m-2 max-h-auto max-w-screen rounded  bg-white shadow-md shadow-gray-500">
         <img
-          className="pt-1 rounded-t-lg max-h-[180px] w-[300px]"
+          className="hidden md:flex pt-1 rounded-t-lg max-h-[150px] w-[250px]"
           src={image}
           alt="product image"
         />
-      <div className="px-5 pb-5">
-        <a href={`/detail/${id}`}>
-          <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+      <div className="flex-grow p-6 pb-5">
+        <Link to={`/detail/${id}`}>
+          <span className="text-xl italic tracking-tight text-gray-900 dark:text-white">
             {name}
-          </h5>
-        </a>
+          </span>
+          </Link>
         <div className="flex items-center mt-2.5 mb-5"></div>
         <div className="flex items-center justify-between">
-          <span className="text-xl font-bold text-gray-900 dark:text-white">
+          <span className="text text-xl font-sans font-bold text-gray-900 dark:text-white">
             ${price}
           </span>
           <button onClick={() => handleAddToCart(id)}>
-            <a className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Add to cart
-            </a>
+            <span className="text-white bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+              Sumar al Carrito
+            </span>
           </button>
         </div>
       </div>

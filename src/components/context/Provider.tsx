@@ -133,8 +133,32 @@ const deleteItemOfCart = (id) => {
     }
 }
 
+const sumItemOfCart = (id) => {
+    console.log(id, "ID PAYLOADEADO ABER CUANTA VECES")
+    try {
+        return dispatch({
+            type: "SUM_ITEM_OF_CART",
+            payload: id
+        })
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+const restItemOfCart = (id) => {
+
+    try {
+        return dispatch({
+            type: "REST_ITEM_OF_CART",
+            payload: id
+        })
+    } catch(err) {
+        console.log(err)
+    }
+}
+
 return (
-    <Context.Provider value={{getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart}}>
+    <Context.Provider value={{sumItemOfCart, restItemOfCart, getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart}}>
         {children}
     </Context.Provider>
 )

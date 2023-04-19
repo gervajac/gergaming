@@ -22,7 +22,7 @@ const ItemDetail: React.FC<ItemDetailProps> = () => {
     addItemToCart(id);
   };
 
-  console.log(state.cart, "cartttt");
+  console.log(state, "cartttt");
 
   return (
     <div className="text-gray-700 body-font overflow-hidden bg-white">

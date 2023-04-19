@@ -3,7 +3,7 @@ import { Context } from "../../components/context/Context";
 export interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
-  const { state, deleteItemOfCart } = useContext(Context);
+  const { state, deleteItemOfCart, restItemOfCart, sumItemOfCart } = useContext(Context);
 
   const cart = state.cart;
 
@@ -15,6 +15,13 @@ const Cart: React.FC<CartProps> = () => {
 
   const handleDeleteOfCart = (id) => {
     deleteItemOfCart(id)
+  }
+
+  const handleRest = (id) => {
+    restItemOfCart(id)
+  }
+  const handleSum = (id) => {
+    sumItemOfCart(id)
   }
 
   return (
@@ -63,20 +70,24 @@ const Cart: React.FC<CartProps> = () => {
                     </div>
                     <div className="mt-4 flex justify-between sm:space-y-16 sm:mt-0 sm:block sm:space-x-6">
                       <div className="flex items-center border-gray-100">
+                        <button onClick={() => handleRest(e._id)}>
                         <span className="cursor-pointer rounded-l bg-gray-100 ml-6 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
                           {" "}
                           -{" "}
                         </span>
+                        </button>
                         <input
                           className="h-8 w-8 border bg-white text-center text-xs outline-none"
                           value={e.quantity}
                           type="number"
                           min="1"
                         />
+                        <button onClick={() => handleSum(e._id)}>
                         <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
                           {" "}
                           +{" "}
                         </span>
+                        </button>
                       </div>
                       <div className="flex items-center">
                         <p className="border text-base font-semibold border-gray-900 py-1">

@@ -5,9 +5,7 @@ export interface DetailPageProps {}
 
 const DetailPage : React.FC<DetailPageProps> = () => {
 	return (
-		<Provider>
 		<ItemDetail/>
-		</Provider>
 	);
 };
 
