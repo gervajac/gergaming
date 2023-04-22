@@ -6,3 +6,19 @@ export interface Item {
     category: string,
     brand: string
 }
+
+// User type/interface
+export interface User {
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+  }
+  
+  // Registration form type/interface
+  export interface RegistrationForm {
+    email: string;
+    password: string;
+    name: string;
+    surname: string;
+  }
