@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Context } from "../../components/context/Context";
+import { Navigate, redirect } from "react-router-dom";
 export interface CartProps {}
 
 const Cart: React.FC<CartProps> = () => {
@@ -22,6 +23,10 @@ const Cart: React.FC<CartProps> = () => {
   }
   const handleSum = (id) => {
     sumItemOfCart(id)
+  }
+  
+  if(!state.user) {
+    return <Navigate to="/signin" />
   }
 
   return (
@@ -133,7 +138,8 @@ const Cart: React.FC<CartProps> = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+} 
+
 
 export default Cart;

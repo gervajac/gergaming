@@ -12,6 +12,7 @@ type ItemAction =
                  | {type: "DELETE_ITEM_OF_CART", payload: Item}
                  | {type: "REST_ITEM_OF_CART", payload: Item}
                  | {type: "SUM_ITEM_OF_CART", payload: Item}
+                 | {type: "VERIFY_USER", payload: Item}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -48,6 +49,12 @@ export const itemReducer = (state: any, action: ItemAction) => {
             return{
                 ...state,
                 items: payload
+            }
+            case "VERIFY_USER": 
+
+            return{
+                ...state,
+                user: payload
             }
             case "GET_ITEM_DETAILS": 
             return{

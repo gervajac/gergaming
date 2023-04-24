@@ -11,8 +11,6 @@ export interface Item {
 export interface User {
     email: string;
     password: string;
-    name: string;
-    surname: string;
   }
   
   // Registration form type/interface
