@@ -2,6 +2,7 @@ import React from "react";
 import { useContext, useState, useEffect } from "react";
 import { Context } from "../context/Context";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { Item } from "../../interfaces/interfaces";
 export interface CardProps {}
 
@@ -19,6 +20,22 @@ const Card: React.FC<Item> = ({
   const handleAddToCart = (id) => {
     console.log(id, "el otro ids")
     addItemToCart(id);
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 1000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer)
+        toast.addEventListener('mouseleave', Swal.resumeTimer)
+      }
+    })
+    
+    Toast.fire({
+      icon: 'success',
+      title: 'Producto agregado'
+    })
   };
 
 

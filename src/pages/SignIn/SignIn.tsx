@@ -3,13 +3,13 @@ import { User } from "../../interfaces/interfaces";
 import { useState, useContext } from "react";
 import { Context } from "../../components/context/Context";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export type SignInProps = {};
 
 const SignIn: React.FC<SignInProps> = () => {
   const { verifyUser, state } = useContext(Context);
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState<User>({
     email: "",
     password: "",
@@ -27,6 +27,7 @@ const SignIn: React.FC<SignInProps> = () => {
         formData
       );
       verifyUser(response);
+      navigate("/home")
     } catch (error) {
       console.error(error);
     }
