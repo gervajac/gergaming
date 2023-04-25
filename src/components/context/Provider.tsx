@@ -8,7 +8,9 @@ const INITIAL_STATE = {
     allItems: [],
     details: {},
     cart: [],
-    user: false
+    user: false,
+    userFilled: {},
+    userData: {}
     
 }
 
@@ -45,7 +47,6 @@ export const Provider = ({children}: props) => {
     }
 
     const filterPriceAsc = async (category) => {
-        console.log(category, "CATEGORIA QUE LE LLEGA AL ACTION")
         try{
             const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price") 
             console.log(resp, "RESPUESTA")
@@ -61,7 +62,7 @@ export const Provider = ({children}: props) => {
 const filterPriceDesc = async (category) => {
     try{
         const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price,desc") 
-        console.log(resp, "fetchresp")
+
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
@@ -74,7 +75,7 @@ const filterPriceDesc = async (category) => {
 const filterByCategory = async (TYPE) => {
     try{
         const resp = await axios.get(`http://localhost:9000/api/itemsp?category=${TYPE}`)
-        console.log(resp, "fetchresp")
+
         return dispatch ({
             type: "FILTER_BY_CATEGORY",
             payload: resp.data.items
@@ -87,7 +88,7 @@ const filterByCategory = async (TYPE) => {
 const searchFunction = async (TYPE) => {
     try{
         const resp = await axios.get(`http://localhost:9000/api/itemsp?search=${TYPE}`)
-        console.log(resp, "fetchresp")
+
         return dispatch ({
             type: "FILTER_BY_CATEGORY",
             payload: resp.data.items
@@ -100,7 +101,7 @@ const searchFunction = async (TYPE) => {
 const getItemDetails = async (id) => {
     try{
         const resp = await axios.get(`http://localhost:9000/api/item/${id}`)
-        console.log(resp, "fetchresp")
+
         return dispatch ({
             type: "GET_ITEM_DETAILS",
             payload: resp.data
@@ -111,7 +112,7 @@ const getItemDetails = async (id) => {
 } 
 
 const addItemToCart = (item) => {
-    console.log(item, "payload q le llega al additemtocart")
+
     try{
         return dispatch ({
             type: "ADD_ITEM_TO_CART",
@@ -123,13 +124,37 @@ const addItemToCart = (item) => {
 } 
 
 const verifyUser = (data) => {
-
     const verified = data.data.verificated
-
     try{
         return dispatch ({
             type: "VERIFY_USER",
             payload: verified
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
+const fillUser = (data) => {
+    const userToFill = data.data.user
+
+    try{
+        return dispatch ({
+            type: "FILL_USER",
+            payload: userToFill
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
+const userData = async (id) => {
+
+    try{
+        const resp = await axios.get(`http://localhost:9000/auth/userfind/${id}`)
+        return dispatch ({
+            type: "USER_DATA",
+            payload: resp.data
         })
 } catch(err) {
     console.log(err);
@@ -149,7 +174,7 @@ const deleteItemOfCart = (id) => {
 }
 
 const sumItemOfCart = (id) => {
-    console.log(id, "ID PAYLOADEADO ABER CUANTA VECES")
+
     try {
         return dispatch({
             type: "SUM_ITEM_OF_CART",
@@ -173,7 +198,7 @@ const restItemOfCart = (id) => {
 }
 
 return (
-    <Context.Provider value={{sumItemOfCart, restItemOfCart, getItems, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
+    <Context.Provider value={{fillUser, sumItemOfCart, restItemOfCart, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
         {children}
     </Context.Provider>
 )

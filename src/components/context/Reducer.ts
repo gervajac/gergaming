@@ -1,4 +1,6 @@
 import { Item } from "../../interfaces/interfaces";
+import { UserData } from "../../interfaces/interfaces";
+import { User } from "../../interfaces/interfaces";
 
 type ItemAction = 
                   {type: "GET_ITEMS", payload: Item}
@@ -13,6 +15,8 @@ type ItemAction =
                  | {type: "REST_ITEM_OF_CART", payload: Item}
                  | {type: "SUM_ITEM_OF_CART", payload: Item}
                  | {type: "VERIFY_USER", payload: Item}
+                 | {type: "USER_DATA", payload: UserData}
+                 | {type: "FILL_USER", payload: UserData}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -56,6 +60,18 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 ...state,
                 user: payload
             }
+            case "FILL_USER": 
+
+            return{
+                ...state,
+                userFilled: payload
+            }
+            case "USER_DATA": 
+      
+            return{
+                ...state,
+                userData: payload
+            }
             case "GET_ITEM_DETAILS": 
             return{
                 ...state,
@@ -66,11 +82,9 @@ export const itemReducer = (state: any, action: ItemAction) => {
             const newItem = state.allItems.find(e => e._id === payload)
             const itemInCart = state.cart.find(e => e._id === payload)
 
-            console.log(newItem, "nuevo item");
-            console.log(itemInCart, "item ya agregado");
             
             if(itemInCart) {
-                console.log(itemInCart, "ABER CUANTAS VECES ENTRA ACA")
+             
                 state.cart = state.cart.map((item) =>
                  item._id === newItem._id 
                  ? {...item, quantity: item.quantity + 1/2} 
@@ -78,7 +92,6 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 );
             } else {
                 state.cart = [...state.cart, {...newItem, quantity: 1/2}]
-                console.log(state.cart, "ESTADO DEL CARRRRRRRRRRRRRITOOO")
             }
             
             return{
@@ -91,7 +104,7 @@ export const itemReducer = (state: any, action: ItemAction) => {
             const itemInCart2 = state.cart.find(e => e._id === payload)
             
             if(itemInCart2) {
-                console.log(itemInCart2, "ABER CUANTAS VECES ENTRA ACA")
+                
                 state.cart = state.cart.map((item) =>
                  item._id === newItem2._id 
                  ? {...item, quantity: item.quantity + 1/2} 
@@ -128,9 +141,9 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 }
             
             case "DELETE_ITEM_OF_CART": 
-            console.log(payload, "PAYLOAD Q ME INTERESA")
+     
             const cartFiltered = state.cart.filter((e) => e._id !== payload)
-            console.log(cartFiltered)
+           
             return{
                 ...state,
                 cart: cartFiltered

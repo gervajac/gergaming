@@ -11,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   let location = useLocation();
 
   const actualLocation = location.pathname
-
+  const id = state.userFilled._id
 
   return (
     <section className="bg-gray-100 font-sans w-full m-0">
@@ -71,7 +71,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </span> : null}
               </h1>
               </Link>
-              <Link to="/signin">
+              <Link to={id ? `/profile/${id}` : "/signin"}>
               <h2 className="flex items-center hover:text-gray-200">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

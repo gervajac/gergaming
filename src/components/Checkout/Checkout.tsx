@@ -58,7 +58,6 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
         currency,
     });
     const response2 = response.data
-    console.log(response2.payVerified)
     response2.payVerified === true ? setIsProcessing(false) : setIsProcessing(true)
     Swal.fire({
       icon: 'success',
@@ -73,7 +72,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
 }
 
 };
-console.log(state.user, "USUSARIOS")
+
   return (
     <form onSubmit={handleSubmit} className="bg-gray flex justify-center items-center">
 		<div className="space-y-16">

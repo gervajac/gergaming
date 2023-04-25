@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export type SignInProps = {};
 
 const SignIn: React.FC<SignInProps> = () => {
-  const { verifyUser, state } = useContext(Context);
+  const { verifyUser, state, fillUser, userData } = useContext(Context);
   const navigate = useNavigate();
   const [formData, setFormData] = useState<User>({
     email: "",
@@ -21,19 +21,22 @@ const SignIn: React.FC<SignInProps> = () => {
   };
 
   const handleRegistration = async () => {
+
     try {
       const response = await axios.post(
         "http://localhost:9000/auth/login",
         formData
       );
+      fillUser(response);
       verifyUser(response);
+      userData(response.data.user._id)
       navigate("/home")
     } catch (error) {
       console.error(error);
     }
   };
 
-  console.log(state, "estadooooo")
+
 
   return (
     <div className="">

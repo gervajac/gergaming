@@ -13,7 +13,9 @@ export type ContextProps = {
     deleteItemOfCart: any,
     restItemOfCart: any,
     sumItemOfCart: any,
-    verifyUser: any
+    verifyUser: any,
+    fillUser: any,
+    userData: any
 }
 
 export const Context = createContext<ContextProps>({} as ContextProps);

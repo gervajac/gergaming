@@ -19,5 +19,14 @@ export interface User {
     password: string;
     name: string;
     surname: string;
-    adress: string
+  }
+
+  export interface UserData {
+    name: string;
+    surname: string;
+    country:string;
+    city:string;
+    adress:string;
+    zip:string;
+    email:string;
   }

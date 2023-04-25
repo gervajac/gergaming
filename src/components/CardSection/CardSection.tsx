@@ -14,7 +14,6 @@ const CardSection: React.FC<CardSectionProps> = () => {
 
   const { getItems, state, getAllItems } = useContext(Context);
 
-  console.log(state, "ESTADO");
 
   return (
     <>

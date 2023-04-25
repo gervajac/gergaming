@@ -12,7 +12,6 @@ const Welcome : React.FC<WelcomeProps> = () => {
 
 const {state} = useContext(Context)
 
-console.log(state, "ESTADOOOOOOOOO")
 
 	return (
 		<>

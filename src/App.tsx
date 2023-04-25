@@ -8,6 +8,7 @@ import { Carrousel } from "./components/Carrousel";
 import { DetailPage } from "./pages/DetailPage";
 import { SignIn } from "./pages/SignIn";
 import { LogIn } from "./pages/LogIn";
+import { Profile } from "./pages/Profile";
 import { Provider } from "./components/context/Provider";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/detail/:id" element={<DetailPage />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/login" element={<LogIn />} />
+        <Route path="/profile/:id" element={<Profile />} />
       </Routes>
       <Carrousel />
       <Footer />

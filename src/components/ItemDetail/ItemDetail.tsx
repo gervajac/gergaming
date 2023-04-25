@@ -18,11 +18,10 @@ const ItemDetail: React.FC<ItemDetailProps> = () => {
   const item = state.details;
 
   const handleAddItemToCart = (id) => {
-    console.log(id, "id dedl payload");
     addItemToCart(id);
   };
 
-  console.log(state, "cartttt");
+
 
   return (
     <div className="text-gray-700 body-font overflow-hidden bg-white">

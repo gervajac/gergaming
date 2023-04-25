@@ -3,7 +3,7 @@ import { Context } from "../../components/context/Context";
 import Swal from "sweetalert2";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { Navigate, redirect } from "react-router-dom";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 import { Checkout } from "../../components/Checkout";
 export interface CartProps {}
 
@@ -12,11 +12,11 @@ const stripePromise = loadStripe(
 );
 
 const Cart: React.FC<CartProps> = () => {
-  const { state, deleteItemOfCart, restItemOfCart, sumItemOfCart } =
-    useContext(Context);
-
+  const { state, deleteItemOfCart, restItemOfCart, sumItemOfCart } = useContext(Context);
   const cart = state.cart;
-
+  const userAdress = state.userData.adress
+  const id = state.userData._id
+  const navigate = useNavigate();
   const totalPrice = cart.reduce((acc, curr) => {
     return acc + curr.quantity * curr.price;
   }, 0);
@@ -55,11 +55,23 @@ const Cart: React.FC<CartProps> = () => {
   }
 
   const handleSuccess = () => {
-    console.log("Payment successful");
+
   };
 
   const handleCheckActive = () => {
+    if(userAdress) {
     checkActive(true);
+  } else {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Direccion requerida',
+      text: 'Por favor, completa tu información de usuario en tu perfil'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        navigate(`/profile/${id}`)
+      }
+    });
+  } 
   };
 
   const [check, checkActive] = useState(false);

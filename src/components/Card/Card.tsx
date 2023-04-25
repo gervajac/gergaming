@@ -18,7 +18,6 @@ const Card: React.FC<Item> = ({
 
 
   const handleAddToCart = (id) => {
-    console.log(id, "el otro ids")
     addItemToCart(id);
     const Toast = Swal.mixin({
       toast: true,
