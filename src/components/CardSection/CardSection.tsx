@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect} from "react";
 import Card from "../Card/Card";
 import { SideBar } from "../SideBar";
 import { useContext } from "react";
@@ -7,19 +7,19 @@ import { Context } from "../context/Context";
 export interface CardSectionProps {}
 
 const CardSection: React.FC<CardSectionProps> = () => {
-  useEffect(() => {
-    getItems();
-	getAllItems();
-  }, []);
 
   const { getItems, state, getAllItems } = useContext(Context);
 
+  useEffect(() => {
+  if(state.items.length === 0) {
+      getItems()
+  }
+}, [])
 
   return (
-    <>
-      <div className="flex  max-h-max mt-1 bg-gray-300 px-12">
+      <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300 px-12">
         <SideBar />
-        <div className="flex justify-between flex-wrap">
+        <div className="flex mx-20 flex-wrap justify-center">
           {state.items.map((e: any) => {
             return (
               <Card
@@ -35,7 +35,6 @@ const CardSection: React.FC<CardSectionProps> = () => {
           })}
         </div>
       </div>
-    </>
   );
 };
 

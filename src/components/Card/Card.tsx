@@ -39,7 +39,7 @@ const Card: React.FC<Item> = ({
 
 
   return (
-    <div className="flex flex-row justify-between pl-1 max-w-[500px] m-2 max-h-auto max-w-screen rounded  bg-white shadow-md shadow-gray-500">
+    <div className="flex flex-row pl-1 min-w-full m-2 max-h-[200px] max-w-[500px] rounded  bg-white shadow-md shadow-gray-500">
         <img
           className="hidden md:flex pt-1 rounded-t-lg max-h-[150px] w-[250px]"
           src={image}
@@ -57,7 +57,7 @@ const Card: React.FC<Item> = ({
             ${price}
           </span>
           <button onClick={() => handleAddToCart(id)}>
-            <span className="text-white bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <span className="text-white shadow-md shadow-gray-500 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-1 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Sumar al Carrito
             </span>
           </button>

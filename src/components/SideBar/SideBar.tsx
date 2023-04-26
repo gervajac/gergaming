@@ -68,7 +68,7 @@ const SideBar: React.FC<SideBarProps> = () => {
   return (
       <div
         id="Main"
-        className="hidden md:flex max-h-full justify-start items-start bg-gray-900 flex-col w-auto"
+        className="hidden md:flex max-h-full shadow-md shadow-gray-500 min-w-[300px] justify-start items-start bg-gray-900 flex-col w-auto"
       >
         <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full bg-gray-900 border-b space-y-3 pb-5 ">
           <button className="flex justify-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">
@@ -154,7 +154,7 @@ const SideBar: React.FC<SideBarProps> = () => {
               <p className="text-base leading-4  ">Placas de Video</p>
             </button>
             <button
-            onClick={(p) => handleFilterCategory(p)} 
+           onClick={(p) => handleFilterCategory(p)} 
             className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2 w-full md:w-52">
               <img src={motherb}></img>
               <p className="text-base leading-4  ">Motherboards</p>

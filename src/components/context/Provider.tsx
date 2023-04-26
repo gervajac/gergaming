@@ -123,6 +123,18 @@ const addItemToCart = (item) => {
 }
 } 
 
+const userOut = () => {
+    console.log(INITIAL_STATE, "ESTADO INICIAAAAAAAAAAL")
+    try{
+        return dispatch ({
+            type: "USER_OUT",
+            payload: INITIAL_STATE
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 const verifyUser = (data) => {
     const verified = data.data.verificated
     try{
@@ -198,7 +210,7 @@ const restItemOfCart = (id) => {
 }
 
 return (
-    <Context.Provider value={{fillUser, sumItemOfCart, restItemOfCart, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
+    <Context.Provider value={{fillUser, userOut, sumItemOfCart, restItemOfCart, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
         {children}
     </Context.Provider>
 )

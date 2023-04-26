@@ -19,16 +19,16 @@ const {searchFunction} = useContext(Context)
 
   return (
     <div>
-      <div className="flex flex-col p-2 py-6 m-h-screen bg-gray-900 mt-1">
+      <div className="flex px-60 py-2 bg-gray-300 h-auto">
         <form 
 		onSubmit={(p) => handleSearch(p)}
-		className="bg-white items-center justify-between w-full flex rounded-full shadow-lg p-2 mb-5 sticky">
+		className="bg-gray-800 items-center justify-between w-full flex rounded shadow-lg p-2 sticky">
           <input
-            className="font-bold uppercase rounded-full w-full py-4 pl-4 text-white bg-gray-200 leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs"
+            className="font-bold uppercase rounded w-full py-4 pl-2 text-black bg-gray-200 leading-tight focus:outline-none focus:shadow-outline lg:text-sm text-xs"
             type="text"
             placeholder="Buscar Producto"
           />
-          <button className="bg-gray-900 p-2 hover:bg-blue-400 cursor-pointer mx-2 rounded-full">
+          <button className="bg-gray-900 p-2 hover:bg-blue-400 cursor-pointer mx-2 rounded">
             <svg
               className="w-6 h-6 text-white"
               xmlns="http://www.w3.org/2000/svg"

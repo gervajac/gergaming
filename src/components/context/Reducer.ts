@@ -17,6 +17,7 @@ type ItemAction =
                  | {type: "VERIFY_USER", payload: Item}
                  | {type: "USER_DATA", payload: UserData}
                  | {type: "FILL_USER", payload: UserData}
+                 | {type: "USER_OUT", payload: any}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -54,11 +55,16 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 ...state,
                 items: payload
             }
+            case "USER_OUT": 
+            return{
+                ...payload,
+                
+            }
             case "VERIFY_USER": 
-
+            console.log(payload, "payloassss")
             return{
                 ...state,
-                user: payload
+                userData: payload
             }
             case "FILL_USER": 
 

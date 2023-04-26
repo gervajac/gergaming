@@ -8,10 +8,10 @@ export interface HomeProps {}
 
 const Home : React.FC<HomeProps> = () => {
 	return (
-		<>
+		<div className='bg-gray-200'>
 		<SearchBar/>
 		<CardSection/>
-		</>
+		</div>
 
 	)
 };
