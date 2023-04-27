@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { User } from "../../interfaces/interfaces";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import { Context } from "../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -25,6 +26,22 @@ const NavBar: React.FC<NavBarProps> = () => {
     navigate("/signin")
     userOut()
   };
+
+  const handleClick = () => {
+    if (state.userFilled.length) {
+      navigate("/cart")
+    } else {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Acceso denegado',
+        text: 'Ingresa con tu cuenta para poder acceder al carrito.'
+      }).then((result) => {
+        if(result.isConfirmed) {
+          navigate("/signin")
+        }
+      });
+    }
+  }
   
 
   console.log(state)
@@ -84,7 +101,9 @@ const NavBar: React.FC<NavBarProps> = () => {
               </li>
             </ul>
             <div className="flex space-x-5">
-              <Link to={"/cart"}>
+              <div
+              onClick={() => handleClick()} 
+              >
                 <h1
                   className={
                     actualLocation === "/cart"
@@ -114,7 +133,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     </span>
                   ) : null}
                 </h1>
-              </Link>
+              </div>
               <Link to={id ? `/profile/${id}` : "/signin"}>
                 <h2 className="flex items-center hover:text-gray-200">
                   <svg

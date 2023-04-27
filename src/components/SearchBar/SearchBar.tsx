@@ -19,7 +19,7 @@ const {searchFunction} = useContext(Context)
 
   return (
     <div>
-      <div className="flex px-60 py-2 bg-gray-300 h-auto">
+      <div className="flex px-60 py-2 bg-gray-300 h-auto min-w-max">
         <form 
 		onSubmit={(p) => handleSearch(p)}
 		className="bg-gray-800 items-center justify-between w-full flex rounded shadow-lg p-2 sticky">
