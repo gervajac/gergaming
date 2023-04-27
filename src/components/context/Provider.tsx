@@ -112,7 +112,7 @@ const getItemDetails = async (id) => {
 } 
 
 const addItemToCart = (item) => {
-
+console.log(item, "ITEMMMMMMM")
     try{
         return dispatch ({
             type: "ADD_ITEM_TO_CART",

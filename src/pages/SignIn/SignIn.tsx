@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export type SignInProps = {};
 
 const SignIn: React.FC<SignInProps> = () => {
-  const { verifyUser, state, fillUser, userData } = useContext(Context);
+  const { verifyUser, state, fillUser, userData, getAllItems } = useContext(Context);
   const navigate = useNavigate();
   const [formData, setFormData] = useState<User>({
     email: "",

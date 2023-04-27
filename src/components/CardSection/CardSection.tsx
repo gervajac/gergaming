@@ -17,7 +17,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
 
   return (
     <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">
-      <div className="hidden md:flex mx-1 flex-wrap justify-center min-w-[250px]">
+      <div className="hidden md:flex mx-1 flex-wrap justify-center max-h-screen min-w-[250px]">
         <img src="https://www.hardgamers.com.ar/public/images/common/banner-vertical-2.png" alt=""></img>
       </div>
       <SideBar />
@@ -36,7 +36,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
           );
         })}
       </div>
-      <div className="hidden md:flex mx-1 flex-wrap justify-center min-w-[250px]">
+      <div className="hidden md:flex mx-1 flex-wrap max-h-screen justify-center min-w-[250px]">
       <img src="https://www.hardgamers.com.ar/public/images/common/banner-vertical-5.png" alt=""></img>
       </div>
     </div>

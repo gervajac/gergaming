@@ -84,10 +84,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 details: payload
             }
             case "ADD_ITEM_TO_CART": 
-
-            const newItem = state.allItems.find(e => e._id === payload)
+            console.log(state)
+            const newItem = state.items.find(e => e._id === payload)
             const itemInCart = state.cart.find(e => e._id === payload)
-
+            console.log(newItem, "NEW ITEM")
+            console.log(itemInCart, "ADDEDITEM")
             
             if(itemInCart) {
              

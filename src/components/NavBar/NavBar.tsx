@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { Context } from "../context/Context";
 import { useLocation, useNavigate } from "react-router-dom";
 
-
 export interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
@@ -21,30 +20,29 @@ const NavBar: React.FC<NavBarProps> = () => {
     getItems();
   };
 
-
   const handleOutUser = async () => {
-    navigate("/signin")
-    userOut()
+    navigate("/signin");
+    userOut();
   };
 
   const handleClick = () => {
-    if (state.userFilled.length) {
-      navigate("/cart")
+    if (state.userFilled._id.length > 1) {
+      navigate("/cart");
     } else {
       Swal.fire({
-        icon: 'warning',
-        title: 'Acceso denegado',
-        text: 'Ingresa con tu cuenta para poder acceder al carrito.'
+        icon: "warning",
+        title: "Acceso denegado",
+        text: "Ingresa con tu cuenta para poder acceder al carrito.",
       }).then((result) => {
-        if(result.isConfirmed) {
-          navigate("/signin")
+        if (result.isConfirmed) {
+          navigate("/signin");
         }
       });
     }
-  }
-  
+  };
 
-  console.log(state)
+  const checkUser = state.userFilled._id;
+
   return (
     <section className="bg-gray-100 font-sans w-full m-0">
       <div className="flex flex-wrap place-items-center">
@@ -101,9 +99,7 @@ const NavBar: React.FC<NavBarProps> = () => {
               </li>
             </ul>
             <div className="flex space-x-5">
-              <div
-              onClick={() => handleClick()} 
-              >
+              <div onClick={() => handleClick()}>
                 <h1
                   className={
                     actualLocation === "/cart"
@@ -152,19 +148,24 @@ const NavBar: React.FC<NavBarProps> = () => {
                   </svg>
                 </h2>
               </Link>
-              <button 
-              onClick={() => handleOutUser()}
-              className="flex items-center hover:text-gray-200">
-                <svg
+              <div>
+              { checkUser ?
+                (<button
+                  onClick={() => handleOutUser()}
+                  className="flex items-center hover:text-gray-200"
+                >
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6 hover:text-gray-200"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                >
-                  <path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"></path>
-                </svg>
-              </button>
+                  >
+                    <path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"></path>
+                  </svg>
+                </button>) : null
+              } 
+              </div>
             </div>
           </div>
         </nav>

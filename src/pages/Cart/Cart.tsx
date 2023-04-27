@@ -50,9 +50,9 @@ const Cart: React.FC<CartProps> = () => {
     sumItemOfCart(id);
   };
 
-  if (!state.user) {
-    return <Navigate to="/signin" />;
-  }
+  // if (!state.user) {
+  //   return <Navigate to="/signin" />;
+  // }
 
   const handleSuccess = () => {
 

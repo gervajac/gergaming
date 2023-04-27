@@ -1,18 +1,20 @@
 import React, {useState} from "react";
 import { Context } from "../context/Context";
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 
 
 export interface SearchBarProps {}
 
 const SearchBar: React.FC<SearchBarProps> = () => {
-
+const navigate = useNavigate();
 const {searchFunction} = useContext(Context)
 
 	const handleSearch = (p) => {
 		p.preventDefault();
     const searched = p.target[0].value
-    searchFunction(searched)
+    searchFunction(searched);
+    navigate("/home")
 	}
 
 
