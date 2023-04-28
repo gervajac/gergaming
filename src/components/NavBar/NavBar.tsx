@@ -26,7 +26,7 @@ const NavBar: React.FC<NavBarProps> = () => {
   };
 
   const handleClick = () => {
-    if (state.userFilled._id.length > 1) {
+    if (state.userFilled._id) {
       navigate("/cart");
     } else {
       Swal.fire({
@@ -40,7 +40,6 @@ const NavBar: React.FC<NavBarProps> = () => {
       });
     }
   };
-
   const checkUser = state.userFilled._id;
 
   return (
@@ -90,16 +89,17 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </a>
               </li>
               <li>
-                <a
+                <Link to="/gervajacob">
+                <h2
                   className="focus:outline-none  focus:text-indigo-400  text-white"
-                  href="#"
                 >
-                  Contacto
-                </a>
+                  Sobre mí
+                </h2>
+                </Link>
               </li>
             </ul>
             <div className="flex space-x-5">
-              <div onClick={() => handleClick()}>
+              <button onClick={() => handleClick()}>
                 <h1
                   className={
                     actualLocation === "/cart"
@@ -129,7 +129,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     </span>
                   ) : null}
                 </h1>
-              </div>
+              </button>
               <Link to={id ? `/profile/${id}` : "/signin"}>
                 <h2 className="flex items-center hover:text-gray-200">
                   <svg

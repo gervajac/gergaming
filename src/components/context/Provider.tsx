@@ -86,6 +86,7 @@ const filterByCategory = async (TYPE) => {
 } 
 
 const searchFunction = async (TYPE) => {
+
     try{
         const resp = await axios.get(`http://localhost:9000/api/itemsp?search=${TYPE}`)
 
@@ -186,7 +187,7 @@ const deleteItemOfCart = (id) => {
 }
 
 const sumItemOfCart = (id) => {
-
+    console.log(id, "data del PROVIDER")
     try {
         return dispatch({
             type: "SUM_ITEM_OF_CART",

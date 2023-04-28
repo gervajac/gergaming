@@ -88,7 +88,7 @@ const SideBar: React.FC<SideBarProps> = () => {
   return (
     <div
       id="Main"
-      className="hidden md:flex max-h-full shadow-md shadow-gray-500 min-w-[300px] ml-4 rounded justify-start items-start bg-gray-900 flex-col w-auto"
+      className="hidden md:flex max-h-screen shadow-md shadow-gray-500 min-w-[300px] ml-4 rounded justify-start items-start bg-gray-900 flex-col w-auto"
     >
       <div className="mt-6 flex flex-col justify-start items-center  pl-4 w-full bg-gray-900 border-b space-y-3 pb-5 ">
         <button className="flex justify-start items-center space-x-6 w-full  focus:outline-none  focus:text-indigo-400  text-white rounded ">

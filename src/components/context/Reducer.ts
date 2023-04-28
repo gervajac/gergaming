@@ -107,7 +107,8 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 
             }
             case "SUM_ITEM_OF_CART": 
-            const newItem2 = state.allItems.find(e => e._id === payload)
+            console.log(payload, "LO Q LE LLEGA AL REDUCER")
+            const newItem2 = state.items.find(e => e._id === payload)
             const itemInCart2 = state.cart.find(e => e._id === payload)
             
             if(itemInCart2) {
@@ -128,7 +129,7 @@ export const itemReducer = (state: any, action: ItemAction) => {
             }
 
                 case "REST_ITEM_OF_CART": 
-                const newItem3 = state.allItems.find(e => e._id === payload)
+                const newItem3 = state.items.find(e => e._id === payload)
                 const itemInCart3 = state.cart.find(e => e._id === payload)
            
                 if(itemInCart3) {

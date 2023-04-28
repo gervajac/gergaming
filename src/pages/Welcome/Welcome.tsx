@@ -18,6 +18,7 @@ const Welcome: React.FC<WelcomeProps> = () => {
   const handleRediretFilter = (e) => {
     e.preventDefault();
     const src = e.nativeEvent.target.currentSrc
+    console.log(src)
     if(src === "https://cdn.shopify.com/s/files/1/0482/6126/7617/articles/M314_1080x.jpg?v=1633105598")
     filterByCategory("perifericos");
     navigate("/home");
@@ -34,8 +35,9 @@ const Welcome: React.FC<WelcomeProps> = () => {
     filterByCategory("perifericos");
     navigate("/home");
     if(src === "https://tynmagazine.com/wp-content/uploads/sites/3/2022/01/ROG-Zephyrus-Duo-16-930x651.jpg")
-    filterByCategory("perifericos");
+    filterByCategory("Notebook");
     navigate("/home");
+    
   };
 
   return (

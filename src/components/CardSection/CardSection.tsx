@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Card from "../Card/Card";
 import { SideBar } from "../SideBar";
 import { useContext } from "react";
+import { NotFoundCard } from "../NotFoundCard";
 import { Context } from "../context/Context";
 
 export interface CardSectionProps {}
@@ -15,6 +16,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
     }
   }, []);
 
+  
   return (
     <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">
       <div className="hidden md:flex mx-1 flex-wrap justify-center max-h-screen min-w-[250px]">
@@ -22,7 +24,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
       </div>
       <SideBar />
       <div className="flex mx-5 flex-wrap justify-center">
-        {state.items.map((e: any) => {
+        {state.items.length >= 1 ? (state.items.map((e: any) => {
           return (
             <Card
               key={e._id}
@@ -34,7 +36,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
               image={e.image}
             />
           );
-        })}
+        })) : (<NotFoundCard/>)}
       </div>
       <div className="hidden md:flex mx-1 flex-wrap max-h-screen justify-center min-w-[250px]">
       <img src="https://www.hardgamers.com.ar/public/images/common/banner-vertical-5.png" alt=""></img>

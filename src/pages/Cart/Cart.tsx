@@ -44,9 +44,11 @@ const Cart: React.FC<CartProps> = () => {
   };
 
   const handleRest = (id) => {
+    
     restItemOfCart(id);
   };
   const handleSum = (id) => {
+    console.log(id, "data del jandle")
     sumItemOfCart(id);
   };
 
@@ -63,7 +65,7 @@ const Cart: React.FC<CartProps> = () => {
     checkActive(true);
   } else {
     Swal.fire({
-      icon: 'warning',
+      icon: 'error',
       title: 'Direccion requerida',
       text: 'Por favor, completa tu información de usuario en tu perfil'
     }).then((result) => {
@@ -78,7 +80,7 @@ const Cart: React.FC<CartProps> = () => {
 
   if (!check) {
     return (
-      <div className="h-screen bg-gray-100 pt-20">
+      <div className="h-full bg-gray-100 pt-20 min-h-screen">
         <h1 className="mb-10 text-center text-2xl font-bold">
           Carrito de Compras
         </h1>
