@@ -42,14 +42,11 @@ const SignIn: React.FC<SignInProps> = () => {
     <div className="">
       <div className="p-8 lg:w-1/2 mx-auto">
         <div className="bg-white rounded-t-lg p-8">
-          <p className="text-center text-sm text-gray-400 font-light">
-            Sign in with
+          <p className="text-center bold text-gray-400 font-bold">
+            Verifica tus datos y accede!
           </p>
         </div>
         <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
-          <p className="text-center text-sm text-gray-500 font-light">
-            Or sign in with credentials
-          </p>
           <form className="mt-6">
             <div className="relative">
               <label>
@@ -98,10 +95,10 @@ const SignIn: React.FC<SignInProps> = () => {
             </div>
             <div className="mt-4 flex items-center text-gray-500">
               <label>
-                Not register?{" "}
+                No estás registrado?{" "}
                 <Link to="/login">
                   {" "}
-                  <span className="text-blue-700">Click here</span>
+                  <span className="text-blue-700">Haz click aquí</span>
                 </Link>
               </label>
             </div>
@@ -111,7 +108,7 @@ const SignIn: React.FC<SignInProps> = () => {
                 onClick={() => handleRegistration()}
                 className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
               >
-                Sign in
+                Ingresar
               </button>
             </div>
           </form>

@@ -9,6 +9,7 @@ import { DetailPage } from "./pages/DetailPage";
 import { SignIn } from "./pages/SignIn";
 import { LogIn } from "./pages/LogIn";
 import { Profile } from "./pages/Profile";
+import { AboutMe } from "./components/AboutMe";
 import { Provider } from "./components/context/Provider";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/signin" element={<SignIn />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/profile/:id" element={<Profile />} />
+        <Route path="/gervajacob" element={<AboutMe />} />
       </Routes>
       <Carrousel />
       <Footer />
