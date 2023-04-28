@@ -16,7 +16,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
     }
   }, []);
 
-  
+  console.log(state)
   return (
     <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">
       <div className="hidden md:flex mx-1 flex-wrap justify-center max-h-screen min-w-[250px]">

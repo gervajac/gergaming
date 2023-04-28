@@ -16,7 +16,8 @@ export type ContextProps = {
     verifyUser: any,
     fillUser: any,
     userData: any,
-    userOut: any
+    userOut: any,
+    searchWordFunction: any
 }
 
 export const Context = createContext<ContextProps>({} as ContextProps);

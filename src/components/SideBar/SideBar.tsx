@@ -70,7 +70,7 @@ const SideBar: React.FC<SideBarProps> = () => {
     if (index === "Placas de Video")
       filterByCategory("gpu") && setCategory("gpu");
     if (index === "Motherboards")
-      filterByCategory("motherboard") && setCategory("motherboard");
+      filterByCategory("mother") && setCategory("mother");
     if (index === "Memorias RAM") filterByCategory("ram") && setCategory("ram");
     if (index === "- Teclados")
       filterByCategory("teclado") && setCategory("teclado");

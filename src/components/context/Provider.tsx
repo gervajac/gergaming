@@ -10,7 +10,8 @@ const INITIAL_STATE = {
     cart: [],
     user: false,
     userFilled: {},
-    userData: {}
+    userData: {},
+    searchWord: ""
     
 }
 
@@ -47,9 +48,10 @@ export const Provider = ({children}: props) => {
     }
 
     const filterPriceAsc = async (category) => {
+        const searchedWord = state.searchWord
         try{
-            const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price") 
-            console.log(resp, "RESPUESTA")
+            const resp = category ? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`) : await axios.get(`http://localhost:9000/api/itemsp?search=${searchedWord}&sort=price,asc`)
+
             return dispatch ({
                 type: "FILTER_PRICE_ASC",
                 payload: resp.data.items
@@ -60,9 +62,10 @@ export const Provider = ({children}: props) => {
 } 
 
 const filterPriceDesc = async (category) => {
-    try{
-        const resp = category? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`) : await axios.get("http://localhost:9000/api/itemsp?sort=price,desc") 
 
+    const searchedWord = state.searchWord
+    try{
+        const resp = category ? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`) : await axios.get(`http://localhost:9000/api/itemsp?search=${searchedWord}&sort=price,desc`)
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
@@ -210,8 +213,20 @@ const restItemOfCart = (id) => {
     }
 }
 
+const searchWordFunction = (string) => {
+
+    try {
+        return dispatch({
+            type: "SEARCH_WORD",
+            payload: string
+        })
+    } catch(err) {
+        console.log(err)
+    }
+}
+
 return (
-    <Context.Provider value={{fillUser, userOut, sumItemOfCart, restItemOfCart, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
+    <Context.Provider value={{fillUser, userOut, sumItemOfCart, restItemOfCart, searchWordFunction, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
         {children}
     </Context.Provider>
 )

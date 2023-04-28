@@ -59,7 +59,7 @@ const Card: React.FC<Item> = ({
         <div className="flex items-center mt-2.5">
 
           <button onClick={() => handleAddToCart(id)}>
-            <span className="text-white shadow-md shadow-gray-500 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-1 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <span className="text-white shadow-md shadow-gray-500 bg-purple-800 hover:bg-purple-500 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-2.5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
               Sumar al Carrito
             </span>
           </button>

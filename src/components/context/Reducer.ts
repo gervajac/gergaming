@@ -18,6 +18,7 @@ type ItemAction =
                  | {type: "USER_DATA", payload: UserData}
                  | {type: "FILL_USER", payload: UserData}
                  | {type: "USER_OUT", payload: any}
+                 | {type: "SEARCH_WORD", payload: string}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -54,6 +55,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
             return{
                 ...state,
                 items: payload
+            }
+            case "SEARCH_WORD": 
+            return{
+                ...state,
+                searchWord: payload
             }
             case "USER_OUT": 
             return{
