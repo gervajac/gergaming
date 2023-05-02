@@ -11,7 +11,8 @@ const INITIAL_STATE = {
     user: false,
     userFilled: {},
     userData: {},
-    searchWord: ""
+    searchWord: "",
+    isLoading: false
     
 }
 
@@ -139,6 +140,18 @@ const userOut = () => {
 }
 } 
 
+const clearCart = () => {
+    console.log(INITIAL_STATE.cart, "ESTADO INICIAAAAAAAAAAL")
+    try{
+        return dispatch ({
+            type: "CLEAR_CART",
+            payload: INITIAL_STATE.cart
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
 const verifyUser = (data) => {
     const verified = data.data.verificated
     try{
@@ -161,6 +174,18 @@ const fillUser = (data) => {
         })
 } catch(err) {
     console.log(err);
+}
+} 
+
+const loading = () => {
+    
+try{
+    return dispatch ({
+        type: "LOADING",
+        payload: true
+    })
+} catch(err) {
+console.log(err);
 }
 } 
 
@@ -226,7 +251,7 @@ const searchWordFunction = (string) => {
 }
 
 return (
-    <Context.Provider value={{fillUser, userOut, sumItemOfCart, restItemOfCart, searchWordFunction, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
+    <Context.Provider value={{fillUser, clearCart, userOut, sumItemOfCart, loading, restItemOfCart, searchWordFunction, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
         {children}
     </Context.Provider>
 )

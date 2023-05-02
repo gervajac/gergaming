@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavBar } from "../../components/NavBar";
 import { SearchBar } from "../../components/SearchBar";
 import { Carrousel } from "../../components/Carrousel";
@@ -13,6 +13,8 @@ const Welcome: React.FC<WelcomeProps> = () => {
   const navigate = useNavigate();
   const { state, filterByCategory } = useContext(Context);
 
+
+
   console.log(state, "ESTADOOOOOOOOO");
 
   const handleRediretFilter = (e) => {
@@ -22,32 +24,42 @@ const Welcome: React.FC<WelcomeProps> = () => {
     if(src === "https://es.digitaltrends.com/wp-content/uploads/2021/06/mejores-teclados-gaming.jpeg?p=1")
     filterByCategory("teclado");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://assetsio.reedpopcdn.com/g502x_f9QuuM8.jpeg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp")
     filterByCategory("mouse");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://guiagame.com/wp-content/uploads/2022/01/1641191010_841_Los-mejores-auriculares-inalambricos-para-juegos-2021.jpg")
     filterByCategory("auriculares");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://www.clarin.com/img/2022/06/25/nvidia-geforce-rtx-una-de___CH2QlPmXe_2000x1500__1.jpg")
     filterByCategory("gpu");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://www.muycomputerpro.com/wp-content/uploads/2018/12/Procesadores_Intel.jpg")
     filterByCategory("cpuintel");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://images.anandtech.com/doci/17408/MSI%20AM5%20Motherboards%203_575px.jpg")
     filterByCategory("motherboard");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://redragon.es/content/uploads/2021/06/Megamenu-Gabinetes-1500x1182-1.jpg")
     filterByCategory("Gabinete");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://tynmagazine.com/wp-content/uploads/sites/3/2022/01/ROG-Zephyrus-Duo-16-930x651.jpg")
     filterByCategory("Notebook");
     navigate("/home");
+    window.scrollTo(0, 0)
     if(src === "https://gamerpc.es/wp-content/uploads/2021/03/mejores-procesadores-amd.jpg")
     filterByCategory("cpuamd");
     navigate("/home");
+    window.scrollTo(0, 0)
     
   };
+
 
   return (
     <div className="bg-gray-300">

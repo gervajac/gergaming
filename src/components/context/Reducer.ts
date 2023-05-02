@@ -19,6 +19,8 @@ type ItemAction =
                  | {type: "FILL_USER", payload: UserData}
                  | {type: "USER_OUT", payload: any}
                  | {type: "SEARCH_WORD", payload: string}
+                 | {type: "LOADING", payload: boolean}
+                 | {type: "CLEAR_CART", payload: any}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -28,42 +30,60 @@ export const itemReducer = (state: any, action: ItemAction) => {
         case "GET_ITEMS":
             return {
                 ...state,
+                isLoading: false,
                 items: payload
             }
             case "GET_ALL_ITEMS":
                 return {
                     ...state,
+                    isLoading: false,
                     allItems: payload
                 }    
         case "FILTER_PRICE_ASC": 
             return{
                 ...state,
+                isLoading: false,
                 items: payload
             }
         
         case "FILTER_PRICE_DESC": 
             return{
                 ...state,
+                isLoading: false,
                 items: payload
             }
             case "FILTER_BY_CATEGORY": 
             return{
                 ...state,
+                isLoading: false,
                 items: payload
             }
             case "SEARCH": 
             return{
                 ...state,
+                isLoading: false,
                 items: payload
             }
             case "SEARCH_WORD": 
             return{
                 ...state,
+                isLoading: false,
                 searchWord: payload
             }
             case "USER_OUT": 
             return{
                 ...payload,
+                
+            }
+            case "CLEAR_CART": 
+            return{
+                ...state,   
+                cart: payload
+            }
+            case "LOADING": 
+            return{
+                ...state,
+                isLoading: payload
                 
             }
             case "VERIFY_USER": 
@@ -86,6 +106,7 @@ export const itemReducer = (state: any, action: ItemAction) => {
             }
             case "GET_ITEM_DETAILS": 
             return{
+                isLoading: false,
                 ...state,
                 details: payload
             }

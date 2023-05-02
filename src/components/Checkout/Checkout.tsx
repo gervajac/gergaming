@@ -12,12 +12,14 @@ interface Props {
 }
 
 const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
-  const {state} = useContext(Context)
+  const {state, clearCart} = useContext(Context)
   const navigate = useNavigate()
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const stripe = useStripe();
   const elements = useElements();
+  console.log(state.userFilled._id)
+  
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -47,8 +49,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
         setIsProcessing(false);
         return;
       }
-
-
+  const userId = state.userFilled._id
 	if(!error) {
     // Send the payment method ID to your server to create a charge
     // Replace this with your own server-side code
@@ -56,6 +57,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
 		paymentMethodId: paymentMethod?.id,
         amount,
         currency,
+        userId
     });
     const response2 = response.data
     response2.payVerified === true ? setIsProcessing(false) : setIsProcessing(true)
@@ -66,6 +68,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
     }).then((result) => {
       if(result.isConfirmed) {
         navigate("/home")
+        clearCart()
       }
     });
     

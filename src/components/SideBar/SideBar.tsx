@@ -20,7 +20,7 @@ import { Context } from "../context/Context";
 export interface SideBarProps {}
 
 const SideBar: React.FC<SideBarProps> = () => {
-  const { filterPriceAsc, filterPriceDesc, filterByCategory } =
+  const { filterPriceAsc, filterPriceDesc, filterByCategory, loading } =
     useContext(Context);
   const [category, setCategory] = useState("");
 
@@ -53,16 +53,19 @@ const SideBar: React.FC<SideBarProps> = () => {
   // }, [])
 
   const handleSortAsc = () => {
+    loading()
     filterPriceAsc(category);
   };
 
   const handleSortDesc = () => {
+    loading()
     filterPriceDesc(category);
   };
 
   const handleFilterCategory = (e) => {
     e.preventDefault();
     const index = e.nativeEvent.target.innerHTML;
+    loading()
     if (index === "- Amd Ryzen")
       filterByCategory("cpuamd") && setCategory("cpuamd");
     if (index === "- Intel")
