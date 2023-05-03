@@ -6,16 +6,13 @@ export type BuySectionProps = {};
 const BuySection: React.FC<BuySectionProps> = () => {
   const { state, getPurchasesHistory } = useContext(Context);
 
-
   useEffect(() => {
     getPurchasesHistory(state.userFilled._id);
   }, []);
 
-
   const cartToMap = state.purchasesHistory;
 
-
-  if (state.purchasesHistory) {
+  if (state.purchasesHistory.length >= 1) {
     return (
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <div className="flex justify-start item-start space-y-2 flex-col ">
@@ -123,7 +120,16 @@ const BuySection: React.FC<BuySectionProps> = () => {
       </div>
     );
   } else {
-    return <div> asd </div>;
+    return (
+      <div className="mt-4 md:mt-6 flex  flex-col md:flex-row justify-center items-start md:items-center min-h-screen md:space-x-6 xl:space-x-8 w-full bg-gray-300">
+
+<div className="justify-between mb-6 rounded-lg bg-gray-700 p-6 shadow-md sm:flex sm:justify-start">
+                <h1 className="mb-10 text-center text-2xl font-bold text-white">
+                  No has realizado ninguna compra.
+                </h1>
+              </div>
+      </div>
+    );
   }
 };
 

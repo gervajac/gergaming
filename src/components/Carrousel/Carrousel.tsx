@@ -28,7 +28,7 @@ function goPrev() {
 
 
   return (
-    <div className="flex items-center justify-center w-full max-h-[330px] py-24 sm:py-8 px-4 border-4 border-gray-900 bg-gray-300">
+    <div className="flex items-center justify-center w-full max-h-[330px] py-24 sm:py-8 px-4 border-1 border-black bg-gray-300">
       <div className="w-full relative flex items-center justify-center">
         <button
           onClick={() => goPrev()}

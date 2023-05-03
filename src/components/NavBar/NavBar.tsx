@@ -108,7 +108,13 @@ const NavBar: React.FC<NavBarProps> = () => {
               </li>
               <li>
                 <Link to="/gervajacob">
-                  <h2 className="focus:outline-none  focus:text-indigo-400  text-white">
+                <h2
+                    className={
+                      actualLocation === "/gervajacob"
+                        ? "focus:outline-none text-indigo-400"
+                        : "focus:outline-none text-white"
+                    }
+                  >
                     Sobre mí
                   </h2>
                 </Link>
