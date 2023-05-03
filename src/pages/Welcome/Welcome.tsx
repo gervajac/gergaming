@@ -3,16 +3,18 @@ import { NavBar } from "../../components/NavBar";
 import { SearchBar } from "../../components/SearchBar";
 import { Carrousel } from "../../components/Carrousel";
 import { Footer } from "../../components/Footer";
+import { Carousel } from "../../components/Carousel";
+import ImageCarousel from "../../components/Carousel/Carousel";
 import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../components/context/Context";
-
+import img2 from "../../assets/portada4.png";
+import img3 from "../../assets/ryzenbanner1.png";
 import img from "../../assets/GERTECHbann.jpg";
 export interface WelcomeProps {}
 
 const Welcome: React.FC<WelcomeProps> = () => {
   const navigate = useNavigate();
   const { state, filterByCategory } = useContext(Context);
-
 
 
   console.log(state, "ESTADOOOOOOOOO");
@@ -60,15 +62,18 @@ const Welcome: React.FC<WelcomeProps> = () => {
     
   };
 
+  const images = [
+    img,
+    img3,
+  ];
+    
+
 
   return (
     <div className="bg-gray-300">
       <SearchBar />
       <div>
-        <img
-          className="flex justify-center w-screen"
-          src={img}
-        ></img>
+      <ImageCarousel images={images} />
         <div className="container my-12 mx-auto px-4 md:px-12">
           <div className="flex flex-wrap">
             <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">

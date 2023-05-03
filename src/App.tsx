@@ -7,15 +7,26 @@ import { Cart } from "./pages/Cart";
 import { Carrousel } from "./components/Carrousel";
 import { DetailPage } from "./pages/DetailPage";
 import { SignIn } from "./pages/SignIn";
+import { Carousel } from "./components/Carousel";
 import { LogIn } from "./pages/LogIn";
 import { Profile } from "./pages/Profile";
 import { AboutMe } from "./components/AboutMe";
 import { BuySection } from "./pages/BuySection";
 import { Provider } from "./components/context/Provider";
 
+
+const images = [
+  "https://source.unsplash.com/featured/?nature",
+  "https://source.unsplash.com/featured/?mountains",
+  "https://source.unsplash.com/featured/?ocean",
+  "https://source.unsplash.com/featured/?forest",
+];
+  
+
 function App() {
   return (
     <BrowserRouter>
+
     <Provider>
       <NavBar />
       <Routes>

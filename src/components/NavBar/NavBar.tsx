@@ -107,14 +107,6 @@ const NavBar: React.FC<NavBarProps> = () => {
                 </Link>
               </li>
               <li>
-                <a
-                  className="focus:outline-none  focus:text-indigo-400  text-white"
-                  href="#"
-                >
-                  Marcas
-                </a>
-              </li>
-              <li>
                 <Link to="/gervajacob">
                   <h2 className="focus:outline-none  focus:text-indigo-400  text-white">
                     Sobre mí

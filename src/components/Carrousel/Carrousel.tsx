@@ -102,28 +102,28 @@ function goPrev() {
             </div>
             <div className="flex flex-shrink-0 relative max-w-[150px] sm:w-auto">
               <img
-                src={kingston}
+                src={logitech}
                 alt="black chair and white table"
                 className="object-cover object-center w-full"
               />
             </div>
             <div className="flex flex-shrink-0 relative max-w-[150px] sm:w-auto">
               <img
-                src={kingston}
+                src={asus}
                 alt="black chair and white table"
                 className="object-cover object-center w-full"
               />
             </div>
             <div className="flex flex-shrink-0 relative max-w-[150px] sm:w-auto">
               <img
-                src={kingston}
+                src={redragon}
                 alt="black chair and white table"
                 className="object-cover object-center w-full"
               />
             </div>
             <div className="flex flex-shrink-0 relative max-w-[150px] sm:w-auto">
               <img
-                src={kingston}
+                src={zowie}
                 alt="black chair and white table"
                 className="object-cover object-center w-full"
               />
