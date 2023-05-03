@@ -12,7 +12,8 @@ const INITIAL_STATE = {
     userFilled: {},
     userData: {},
     searchWord: "",
-    isLoading: false
+    isLoading: false,
+    purchasesHistory: []
     
 }
 
@@ -109,6 +110,19 @@ const getItemDetails = async (id) => {
 
         return dispatch ({
             type: "GET_ITEM_DETAILS",
+            payload: resp.data
+        })
+} catch(err) {
+    console.log(err);
+}
+} 
+
+const getPurchasesHistory = async (id) => {
+    try{
+        const resp = await axios.get(`http://localhost:9000/checkout/paymentsfind/${id}`)
+        console.log(resp.data, "QUE ONDAAAAAAAAAAAAAA")
+        return dispatch ({
+            type: "GET_PURCHASES_HISTORY",
             payload: resp.data
         })
 } catch(err) {
@@ -251,7 +265,7 @@ const searchWordFunction = (string) => {
 }
 
 return (
-    <Context.Provider value={{fillUser, clearCart, userOut, sumItemOfCart, loading, restItemOfCart, searchWordFunction, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
+    <Context.Provider value={{fillUser, clearCart, userOut, getPurchasesHistory, sumItemOfCart, loading, restItemOfCart, searchWordFunction, getItems, userData, state, filterPriceAsc, filterPriceDesc, filterByCategory, searchFunction, getItemDetails, addItemToCart, getAllItems, deleteItemOfCart, verifyUser}}>
         {children}
     </Context.Provider>
 )

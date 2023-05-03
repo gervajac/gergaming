@@ -21,6 +21,7 @@ type ItemAction =
                  | {type: "SEARCH_WORD", payload: string}
                  | {type: "LOADING", payload: boolean}
                  | {type: "CLEAR_CART", payload: any}
+                 | {type: "GET_PURCHASES_HISTORY", payload: any}
 
 
 export const itemReducer = (state: any, action: ItemAction) => {
@@ -79,6 +80,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
             return{
                 ...state,   
                 cart: payload
+            }
+            case "GET_PURCHASES_HISTORY": 
+            return{
+                ...state,   
+                purchasesHistory: payload
             }
             case "LOADING": 
             return{

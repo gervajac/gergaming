@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { User } from "../../interfaces/interfaces";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -9,13 +9,18 @@ export interface NavBarProps {}
 
 const NavBar: React.FC<NavBarProps> = () => {
   const navigate = useNavigate();
-  const { state, getItems, userOut } = useContext(Context);
+  const { state, getItems, userOut, getPurchasesHistory } = useContext(Context);
   const [showList, setShowList] = useState(false);
+
   const cart = state.cart;
   let location = useLocation();
 
   const actualLocation = location.pathname;
   const id = state.userFilled._id;
+
+  useEffect(() => {
+    getPurchasesHistory(id)
+  }, [])
 
   const handleAddItems = () => {
     getItems();
@@ -51,12 +56,18 @@ const NavBar: React.FC<NavBarProps> = () => {
     setShowList(false);
   }
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
   const carrito = state.cart;
   const totalPrice = carrito.reduce((acc, curr) => {
     return acc + curr.quantity * curr.price;
   }, 0);
 
-  console.log(carrito.length);
+  console.log(state);
   return (
     <section className="bg-gray-100 font-sans w-full m-0">
       <div className="flex flex-wrap place-items-center">
@@ -162,7 +173,12 @@ const NavBar: React.FC<NavBarProps> = () => {
                               src={e.image}
                             ></img>
                             <span className="text-sm">{e.name}</span>
-                            <span>${e.quantity === 1 ? e.price : e.price * e.quantity}</span>
+                            <span>
+                              $
+                              {e.quantity === 1
+                                ? e.price
+                                : e.price * e.quantity}
+                            </span>
                           </div>
                         );
                       })}
@@ -175,24 +191,47 @@ const NavBar: React.FC<NavBarProps> = () => {
                   </div>
                 ) : null}
               </div>
-              <Link to={id ? `/profile/${id}` : "/signin"}>
-                <h2 className="flex items-center hover:text-gray-200">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6 hover:text-gray-200"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
+              <div onClick={() => toggleDropdown()}>
+                
+                  <button className="flex items-center hover:text-gray-200">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 hover:text-gray-200"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </button>
+                
+                {isOpen ? (
+                  <div
+                    id="menu1"
+                    className="absolute p-3 top-0 right-0 mt-8 w-80 bg-gray-700 rounded-lg shadow-lg z-10"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </h2>
-              </Link>
+                    <Link to={id ? `/profile/${id}` : "/signin"}>
+                    <button
+                      className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52"
+                    >
+                      <p className="text-base leading-4  ">Perfil</p>
+                    </button>
+                    </Link>
+                    <Link to="/miscompras">
+                    <button
+                      className="flex justify-start items-center space-x-6 hover:text-white focus:bg-gray-700 focus:text-white hover:bg-gray-700 text-gray-400 rounded px-3 py-2  w-full md:w-52"
+                    >
+                      <p className="text-base leading-4  ">Mis compras</p>
+                    </button>
+                    </Link>
+                  </div>
+                ) : null}
+              </div>
               <div>
                 {checkUser ? (
                   <button

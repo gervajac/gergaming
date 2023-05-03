@@ -19,7 +19,8 @@ export type ContextProps = {
     userOut: any,
     searchWordFunction: any,
     loading: any,
-    clearCart: any
+    clearCart: any,
+    getPurchasesHistory: any
 }
 
 export const Context = createContext<ContextProps>({} as ContextProps);

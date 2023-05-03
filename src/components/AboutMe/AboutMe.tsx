@@ -6,7 +6,7 @@ export type AboutMeProps = {};
 const AboutMe: React.FC<AboutMeProps> = () => {
   return (
     <div>
-      <div className=" 2xl:px-20 px-6 bg-gray-300 ">
+      <div className=" 2xl:px-20 px-6 bg-gradient-to-r from-gray-300 via-gray-300 to-fuchsia-900 ">
         <div className="flex md:flex-row flex-col-reverse md:items-stretch items-center justify-center">
           <div className="md:py-20 xl:w-1/2 sm:w-1/2 lg:mr-20 md:mr-6 flex flex-col md:items-end items-center justify-center xl:mr-28">
             <div className="flex flex-col items-center justify-center">

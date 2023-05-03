@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 export type SignInProps = {};
 
 const SignIn: React.FC<SignInProps> = () => {
-  const { verifyUser, state, fillUser, userData, getAllItems } = useContext(Context);
+  const { verifyUser, state, fillUser, userData, getAllItems, getPurchasesHistory } = useContext(Context);
   const navigate = useNavigate();
   const [formData, setFormData] = useState<User>({
     email: "",
@@ -29,7 +29,8 @@ const SignIn: React.FC<SignInProps> = () => {
       );
       fillUser(response);
       verifyUser(response);
-      userData(response.data.user._id)
+      userData(response.data.user._id);
+      getPurchasesHistory(response.data.user._id)
       navigate("/home")
     } catch (error) {
       console.error(error);

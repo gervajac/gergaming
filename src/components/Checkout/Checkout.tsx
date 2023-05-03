@@ -50,6 +50,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
         return;
       }
   const userId = state.userFilled._id
+  const product = state.cart
 	if(!error) {
     // Send the payment method ID to your server to create a charge
     // Replace this with your own server-side code
@@ -57,7 +58,8 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
 		paymentMethodId: paymentMethod?.id,
         amount,
         currency,
-        userId
+        userId,
+        product
     });
     const response2 = response.data
     response2.payVerified === true ? setIsProcessing(false) : setIsProcessing(true)
