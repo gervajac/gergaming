@@ -6,14 +6,14 @@ export type BuySectionProps = {};
 const BuySection: React.FC<BuySectionProps> = () => {
   const { state, getPurchasesHistory } = useContext(Context);
 
-  console.log(state.paymentsfind);
+
   useEffect(() => {
     getPurchasesHistory(state.userFilled._id);
   }, []);
 
-  console.log(state.purchasesHistory);
+
   const cartToMap = state.purchasesHistory;
-  console.log(cartToMap, "pARA MAPEAR");
+
 
   if (state.purchasesHistory) {
     return (

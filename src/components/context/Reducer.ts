@@ -93,7 +93,7 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 
             }
             case "VERIFY_USER": 
-            console.log(payload, "payloassss")
+
             return{
                 ...state,
                 userData: payload
@@ -117,11 +117,10 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 details: payload
             }
             case "ADD_ITEM_TO_CART": 
-            console.log(state)
+
             const newItem = state.items.find(e => e._id === payload)
             const itemInCart = state.cart.find(e => e._id === payload)
-            console.log(newItem, "NEW ITEM")
-            console.log(itemInCart, "ADDEDITEM")
+
             
             if(itemInCart) {
              
@@ -140,7 +139,7 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 
             }
             case "SUM_ITEM_OF_CART": 
-            console.log(payload, "LO Q LE LLEGA AL REDUCER")
+
             const newItem2 = state.items.find(e => e._id === payload)
             const itemInCart2 = state.cart.find(e => e._id === payload)
             

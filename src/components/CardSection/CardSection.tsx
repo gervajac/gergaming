@@ -30,8 +30,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
   }, []);
 
   const isLoading = state.isLoading
-  console.log(isLoading)
-  console.log(state.isLoading)
+
 
   return (
     <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">

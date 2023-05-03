@@ -17,12 +17,12 @@ const Welcome: React.FC<WelcomeProps> = () => {
   const { state, filterByCategory } = useContext(Context);
 
 
-  console.log(state, "ESTADOOOOOOOOO");
+
 
   const handleRediretFilter = (e) => {
     e.preventDefault();
     const src = e.nativeEvent.target.currentSrc
-    console.log(src)
+
     if(src === "https://es.digitaltrends.com/wp-content/uploads/2021/06/mejores-teclados-gaming.jpeg?p=1")
     filterByCategory("teclado");
     navigate("/home");

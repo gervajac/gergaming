@@ -48,7 +48,7 @@ const Cart: React.FC<CartProps> = () => {
     restItemOfCart(id);
   };
   const handleSum = (id) => {
-    console.log(id, "data del jandle")
+
     sumItemOfCart(id);
   };
 

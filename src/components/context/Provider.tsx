@@ -120,7 +120,7 @@ const getItemDetails = async (id) => {
 const getPurchasesHistory = async (id) => {
     try{
         const resp = await axios.get(`http://localhost:9000/checkout/paymentsfind/${id}`)
-        console.log(resp.data, "QUE ONDAAAAAAAAAAAAAA")
+
         return dispatch ({
             type: "GET_PURCHASES_HISTORY",
             payload: resp.data
@@ -131,7 +131,7 @@ const getPurchasesHistory = async (id) => {
 } 
 
 const addItemToCart = (item) => {
-console.log(item, "ITEMMMMMMM")
+
     try{
         return dispatch ({
             type: "ADD_ITEM_TO_CART",
@@ -143,7 +143,7 @@ console.log(item, "ITEMMMMMMM")
 } 
 
 const userOut = () => {
-    console.log(INITIAL_STATE, "ESTADO INICIAAAAAAAAAAL")
+
     try{
         return dispatch ({
             type: "USER_OUT",
@@ -155,7 +155,7 @@ const userOut = () => {
 } 
 
 const clearCart = () => {
-    console.log(INITIAL_STATE.cart, "ESTADO INICIAAAAAAAAAAL")
+
     try{
         return dispatch ({
             type: "CLEAR_CART",
@@ -229,7 +229,7 @@ const deleteItemOfCart = (id) => {
 }
 
 const sumItemOfCart = (id) => {
-    console.log(id, "data del PROVIDER")
+
     try {
         return dispatch({
             type: "SUM_ITEM_OF_CART",

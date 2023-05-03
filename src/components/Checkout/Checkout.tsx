@@ -18,7 +18,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
   const [error, setError] = useState<string | null>(null);
   const stripe = useStripe();
   const elements = useElements();
-  console.log(state.userFilled._id)
+
   
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

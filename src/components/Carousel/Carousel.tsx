@@ -36,7 +36,6 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
     window.scrollTo(0, 0)
   }
 
-  console.log(activeIndex)
 
   return (
     <div className="relative top-0 left-0 w-full h-full flex items-center justify-center z-50">
@@ -44,13 +43,13 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
         className="rounded-full bg-gray-800 text-white p-2 absolute top-1/2 transform -translate-y-1/2 left-2"
         onClick={handlePrevClick}
       >
-        Prev
+        {"<"}
       </button>
       <button
         className="rounded-full bg-gray-800 text-white p-2 absolute top-1/2 transform -translate-y-1/2 right-2"
         onClick={handleNextClick}
       >
-        Next
+        {">"}
       </button>
       {activeIndex === 1 ? 
 	  (<button

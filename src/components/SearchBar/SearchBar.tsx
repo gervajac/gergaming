@@ -22,7 +22,6 @@ const SearchBar: React.FC<SearchBarProps> = () => {
   const handleChange = (e) => {
     const value = e.target.value
     setInputValue(value)
-    console.log(inputValue)
   }
 
   const handleClean = () => {
