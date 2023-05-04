@@ -31,7 +31,7 @@ const Profile: React.FC<ProfileProps> = () => {
   const handleRegistration = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:9000/auth/user/${id}`,
+        `https://bronze-bee-wrap.cyclic.app/auth/user/${id}`,
         userDatax
       );
       userData(response.data.id);

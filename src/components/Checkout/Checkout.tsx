@@ -54,7 +54,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
 	if(!error) {
     // Send the payment method ID to your server to create a charge
     // Replace this with your own server-side code
-    const response = await axios.post("http://localhost:9000/checkout/posted", {
+    const response = await axios.post("https://bronze-bee-wrap.cyclic.app/checkout/posted", {
 		paymentMethodId: paymentMethod?.id,
         amount,
         currency,

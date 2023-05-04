@@ -26,7 +26,7 @@ export const Provider = ({children}: props) => {
 
     const getItems = async () => {
         try {
-            const resp = await axios.get("http://localhost:9000/api/items");
+            const resp = await axios.get("https://bronze-bee-wrap.cyclic.app/api/items");
             return dispatch ({
                 type: "GET_ITEMS",
                 payload: resp.data
@@ -38,7 +38,7 @@ export const Provider = ({children}: props) => {
     }
     const getAllItems = async () => {
         try {
-            const resp = await axios.get("http://localhost:9000/api/items");
+            const resp = await axios.get("https://bronze-bee-wrap.cyclic.app/api/items");
             return dispatch ({
                 type: "GET_ALL_ITEMS",
                 payload: resp.data
@@ -52,7 +52,7 @@ export const Provider = ({children}: props) => {
     const filterPriceAsc = async (category) => {
         const searchedWord = state.searchWord
         try{
-            const resp = category ? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,asc`) : await axios.get(`http://localhost:9000/api/itemsp?search=${searchedWord}&sort=price,asc`)
+            const resp = category ? await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?category=${category}&sort=price,asc`) : await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?search=${searchedWord}&sort=price,asc`)
 
             return dispatch ({
                 type: "FILTER_PRICE_ASC",
@@ -67,7 +67,7 @@ const filterPriceDesc = async (category) => {
 
     const searchedWord = state.searchWord
     try{
-        const resp = category ? await axios.get(`http://localhost:9000/api/itemsp?category=${category}&sort=price,desc`) : await axios.get(`http://localhost:9000/api/itemsp?search=${searchedWord}&sort=price,desc`)
+        const resp = category ? await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?category=${category}&sort=price,desc`) : await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?search=${searchedWord}&sort=price,desc`)
         return dispatch ({
             type: "FILTER_PRICE_DESC",
             payload: resp.data.items
@@ -79,7 +79,7 @@ const filterPriceDesc = async (category) => {
 
 const filterByCategory = async (TYPE) => {
     try{
-        const resp = await axios.get(`http://localhost:9000/api/itemsp?category=${TYPE}`)
+        const resp = await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?category=${TYPE}`)
 
         return dispatch ({
             type: "FILTER_BY_CATEGORY",
@@ -93,7 +93,7 @@ const filterByCategory = async (TYPE) => {
 const searchFunction = async (TYPE) => {
 
     try{
-        const resp = await axios.get(`http://localhost:9000/api/itemsp?search=${TYPE}`)
+        const resp = await axios.get(`https://bronze-bee-wrap.cyclic.app/api/itemsp?search=${TYPE}`)
 
         return dispatch ({
             type: "FILTER_BY_CATEGORY",
@@ -106,7 +106,7 @@ const searchFunction = async (TYPE) => {
 
 const getItemDetails = async (id) => {
     try{
-        const resp = await axios.get(`http://localhost:9000/api/item/${id}`)
+        const resp = await axios.get(`https://bronze-bee-wrap.cyclic.app/api/item/${id}`)
 
         return dispatch ({
             type: "GET_ITEM_DETAILS",
@@ -119,7 +119,7 @@ const getItemDetails = async (id) => {
 
 const getPurchasesHistory = async (id) => {
     try{
-        const resp = await axios.get(`http://localhost:9000/checkout/paymentsfind/${id}`)
+        const resp = await axios.get(`https://bronze-bee-wrap.cyclic.app/checkout/paymentsfind/${id}`)
 
         return dispatch ({
             type: "GET_PURCHASES_HISTORY",
@@ -206,7 +206,7 @@ console.log(err);
 const userData = async (id) => {
 
     try{
-        const resp = await axios.get(`http://localhost:9000/auth/userfind/${id}`)
+        const resp = await axios.get(`https://bronze-bee-wrap.cyclic.app/auth/userfind/${id}`)
         return dispatch ({
             type: "USER_DATA",
             payload: resp.data

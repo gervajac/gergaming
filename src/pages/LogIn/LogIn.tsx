@@ -24,7 +24,7 @@ const LogIn: React.FC<LogInFormProps> = () => {
   const handleRegistration = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:9000/auth/register",
+        "https://bronze-bee-wrap.cyclic.app/auth/register",
         formData
       );
       console.log(response.data); // do something with server response
