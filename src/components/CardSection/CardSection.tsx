@@ -33,7 +33,7 @@ const CardSection: React.FC<CardSectionProps> = () => {
 
 
   return (
-    <div className="flex min-h-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">
+    <div className="flex min-h-screen w-screen overflow-hidden rounded-lg shadow-lg bg-gray-300">
       <div className="hidden md:flex mx-1 flex-wrap justify-center max-h-screen min-w-[250px]">
         <img src="https://www.hardgamers.com.ar/public/images/common/banner-vertical-2.png" alt=""></img>
       </div>

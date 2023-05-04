@@ -39,7 +39,7 @@ const Card: React.FC<Item> = ({
 
   
   return (
-    <div className="flex flex-col py-3 md:flex-row pl-1 min-h-[350px] md:min-h-[210px] min-w-[300px] md:min-w-[880px] m-2 max-w-[400px] rounded  bg-white shadow-md shadow-gray-500">
+    <div className="flex flex-col py-3 md:flex-row pl-1 min-h-[350px] md:min-h-[210px] min-w-[300px] md:min-w-[930px] m-2 max-w-[400px] rounded  bg-white shadow-md shadow-gray-500">
         <img
           className="md:flex pt-1 rounded-t-lg max-h-[200px] max-w-[350px] md:max-h-[180px]"
           src={image}
