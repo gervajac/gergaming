@@ -192,6 +192,7 @@ const Cart: React.FC<CartProps> = () => {
   } else {
     return (
       <div className="h-auto py-20 bg-gray-100">
+        <h4 className="flex justify-center">RELLENAR LOS DATOS CON: 4242 4242 4242 4242 04/24 424 24242. TARJETA VISA DE EJEMPLO </h4>
         <Elements stripe={stripePromise}>
           <Checkout
             amount={totalPrice}
