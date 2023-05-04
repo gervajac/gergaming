@@ -126,11 +126,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
              
                 state.cart = state.cart.map((item) =>
                  item._id === newItem._id 
-                 ? {...item, quantity: item.quantity + 1/2} 
+                 ? {...item, quantity: item.quantity + 1} 
                  : item
                 );
             } else {
-                state.cart = [...state.cart, {...newItem, quantity: 1/2}]
+                state.cart = [...state.cart, {...newItem, quantity: 1}]
             }
             
             return{
@@ -147,11 +147,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 
                 state.cart = state.cart.map((item) =>
                  item._id === newItem2._id 
-                 ? {...item, quantity: item.quantity + 1/2} 
+                 ? {...item, quantity: item.quantity + 1} 
                  : item
                 );
             } else {
-                state.cart = [...state.cart, {...newItem2, quantity: 1/2}]
+                state.cart = [...state.cart, {...newItem2, quantity: 1}]
             }
             
             return{
@@ -167,11 +167,11 @@ export const itemReducer = (state: any, action: ItemAction) => {
                 if(itemInCart3) {
                     state.cart = state.cart.map((item) =>
                      item._id === newItem3._id 
-                     ? {...item, quantity: item.quantity - 1/2} 
+                     ? {...item, quantity: item.quantity - 1} 
                      : item
                     );
                 } else {
-                    state.cart = [...state.cart, {...newItem3, quantity: 1/2}]
+                    state.cart = [...state.cart, {...newItem3, quantity: 1}]
                 }
                 
                 return{
