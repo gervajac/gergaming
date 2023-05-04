@@ -32,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = () => {
 
   return (
     <div>
-      <div className="flex px-60 py-2 bg-gray-300 h-auto min-w-max">
+      <div className="flex justify-center md:px-60 py-2 bg-gray-300 h-auto min-w-max">
         <form
           onSubmit={(p) => handleSearch(p)}
 

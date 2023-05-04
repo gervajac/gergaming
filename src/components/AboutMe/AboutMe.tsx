@@ -186,13 +186,16 @@ const AboutMe: React.FC<AboutMeProps> = () => {
                   </svg>
                 </div>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  Email: gerva.jacob.tropini@gmail.com
+                  <a href="mailto:gerva.jacob.tropini@gmail.com"> Email: gerva.jacob.tropini@gmail.com</a>
                 </p>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  LinkedIn: gervajac
+                  <a href="https://www.linkedin.com/in/gervasio-jacob/">LinkedIn: gervajac</a>
                 </p>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  Github: gervajac
+                  <a href="https://github.com/gervajac">Github: gervajac</a>
+                </p>
+                <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
+                  <a href="https://gervajacportfolio.netlify.app/">Portfolio: gervajacportfolio.netlify.app/</a>
                 </p>
               </div>
             </div>
@@ -200,12 +203,12 @@ const AboutMe: React.FC<AboutMeProps> = () => {
           <div className="py-12 xl:w-1/2 lg:w-1/3 sm:w-1/2">
             <img
               src={gerva}
-              alt="image ow a woman studying"
+              alt=""
               className="h-full blur-sm rounded-md object-cover object-center md:block hidden"
             />
             <img
-              src="https://i.ibb.co/NT0VJcd/pexels-la-miko-3681591-1.png"
-              alt="image ow a woman studying"
+              src={gerva}
+              alt=""
               className="h-auto w-auto md:hidden block"
             />
           </div>

@@ -16,32 +16,32 @@ const BuySection: React.FC<BuySectionProps> = () => {
     return (
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <div className="flex justify-start item-start space-y-2 flex-col ">
-          <h1 className="text-3xl lg:text-4xl font-semibold leading-7 lg:leading-9  text-gray-800">
+          <h1 className="text-3xl  lg:text-4xl font-semibold leading-7 lg:leading-9   text-gray-800">
             Historial de compras
           </h1>
         </div>
         {cartToMap
           ? cartToMap.map((e) => {
               return (
-                <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
+                <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch  w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0 border-2 border-black">
                   <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
                     <div className="flex flex-col justify-start items-start bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
                       <p className="text-lg md:text-xl font-semibold leading-6 xl:leading-5 text-gray-800">
-                        Detalle de compra
+                        Detalle de compra - SKU: {e._id}
                       </p>
                       {e.product.map((i) => {
                         return (
-                          <div className="mt-4 md:mt-6 flex  flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
+                          <div className="mt-4 md:mt-6 flex flex-col md:flex-row justify-start items-start md:items-center md:space-x-6 xl:space-x-8 w-full ">
                             <div className="pb-4 md:pb-8 w-full md:w-40">
                               <img
                                 className="w-full hidden md:block"
                                 src={i.image}
-                                alt="dress"
+                                alt="d"
                               />
                               <img
-                                className="w-full md:hidden"
-                                src="https://i.ibb.co/L039qbN/Rectangle-10.png"
-                                alt="dress"
+                                className="w-full md:hidden max-h-[150px]"
+                                src={i.image}
+                                alt="d"
                               />
                             </div>
                             <div className="border-b border-gray-200 md:flex-row flex-col flex justify-between items-start w-full  pb-8 space-y-4 md:space-y-0">

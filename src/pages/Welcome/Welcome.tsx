@@ -76,11 +76,11 @@ const Welcome: React.FC<WelcomeProps> = () => {
       <ImageCarousel images={images} />
         <div className="container mx-auto px-4 md:px-12">
           <div className="flex flex-wrap">
-            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+            <div className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3 max-h-[320px] min-h-[300px]">
               <button
                 value="perifericos"
                 onClick={(e) => handleRediretFilter(e)}
-                className="overflow-hidden rounded-lg shadow-lg min-w-full"
+                className="overflow-hidden rounded-lg shadow-lg  min-w-full"
               >
                 <div>
                   <img

@@ -14,34 +14,24 @@ import { AboutMe } from "./components/AboutMe";
 import { BuySection } from "./pages/BuySection";
 import { Provider } from "./components/context/Provider";
 
-
-const images = [
-  "https://source.unsplash.com/featured/?nature",
-  "https://source.unsplash.com/featured/?mountains",
-  "https://source.unsplash.com/featured/?ocean",
-  "https://source.unsplash.com/featured/?forest",
-];
-  
-
 function App() {
   return (
     <BrowserRouter>
-
-    <Provider>
-      <NavBar />
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/detail/:id" element={<DetailPage />} />
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/profile/:id" element={<Profile />} />
-        <Route path="/gervajacob" element={<AboutMe />} />
-        <Route path="/miscompras" element={<BuySection />} />
-      </Routes>
-      <Carrousel />
-      <Footer />
+      <Provider>
+        <NavBar />
+        <Routes>
+          <Route path="/home" element={<Home />} />
+          <Route path="/welcome" element={<Welcome />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/detail/:id" element={<DetailPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/profile/:id" element={<Profile />} />
+          <Route path="/gervajacob" element={<AboutMe />} />
+          <Route path="/miscompras" element={<BuySection />} />
+        </Routes>
+        <Carrousel />
+        <Footer />
       </Provider>
     </BrowserRouter>
   );

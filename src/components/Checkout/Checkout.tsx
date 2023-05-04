@@ -66,7 +66,7 @@ const Checkout: React.FC<Props> = ({ amount, currency, onCheckoutSuccess }) => {
     Swal.fire({
       icon: 'success',
       title: 'Success!',
-      text: 'Tu pago ha sido realizado. Te llegara un mail con el seguimiento'
+      text: 'Tu pago ha sido realizado. Puedes seguir el envío en la sección "Mis compras"'
     }).then((result) => {
       if(result.isConfirmed) {
         navigate("/home")
