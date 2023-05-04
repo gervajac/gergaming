@@ -278,8 +278,6 @@ const Welcome: React.FC<WelcomeProps> = () => {
                 </header>
               </button>
             </div>
-
-         
           </div>
         </div>
       </div>

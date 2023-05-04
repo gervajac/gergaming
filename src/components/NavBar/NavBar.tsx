@@ -73,17 +73,17 @@ const NavBar: React.FC<NavBarProps> = () => {
       <div className="flex flex-wrap place-items-center">
         <nav className="flex justify-between bg-gray-900 text-white w-screen h-[50px]">
           <div className="px-5 xl:px-12 py-6 flex w-full items-center italic ">
-            <Link to="/welcome"
+            <Link to="/"
               className="text-3xl font-bold tracking-widest decoration-double font-serif rounded-sm p-2 hidden md:flex"
             >
               GERTECH
             </Link>
             <ul className="flex px-4 mx-auto font-semibold font-heading space-x-12">
               <li>
-                <Link onClick={() => handleAddItems()} to={"/welcome"}>
+                <Link onClick={() => handleAddItems()} to={"/"}>
                   <h2
                     className={
-                      actualLocation === "/welcome"
+                      actualLocation === "/"
                         ? "focus:outline-none text-indigo-400"
                         : "focus:outline-none text-white"
                     }
