@@ -9,6 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../components/context/Context";
 import img2 from "../../assets/portada4.png";
 import img3 from "../../assets/ryzenbanner1.png";
+import img4 from "../../assets/intelban.webp";
 import img from "../../assets/GERTECHbann.jpg";
 export interface WelcomeProps {}
 
@@ -64,7 +65,7 @@ const Welcome: React.FC<WelcomeProps> = () => {
 
   const images = [
     img,
-    img3,
+    img4,
   ];
     
 

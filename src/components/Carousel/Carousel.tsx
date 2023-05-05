@@ -31,7 +31,7 @@ const ImageCarousel = ({ images }: ImageCarouselProps) => {
   };
 
   const handleRedirect = () => {
-    filterByCategory("cpuamd");
+    filterByCategory("cpuintel");
     navigate("/home");
     window.scrollTo(0, 0)
   }
