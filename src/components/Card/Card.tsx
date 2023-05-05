@@ -47,7 +47,7 @@ const Card: React.FC<Item> = ({
         />
       <div className="flex-col px-6">
         <Link to={`/detail/${id}`}>
-          <span className="text-xl italic tracking-tight text-gray-900 dark:text-white">
+          <span className="text-xl italic tracking-tight text-gray-900">
             {name}
           </span>
           </Link>

@@ -163,7 +163,7 @@ const NavBar: React.FC<NavBarProps> = () => {
                     <ul className="relative items-center">
                       {carrito.map((e) => {
                         return (
-                          <div className="flex justify-between items-center mb-2">
+                          <div className="justify-between items-center mb-2 hidden md:flex">
                             <span className="text-sm">x{e.quantity}</span>
                             <img
                               className="max-h-[90px] max-w-[30px] mr-2"
