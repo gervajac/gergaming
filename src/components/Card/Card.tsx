@@ -52,7 +52,7 @@ const Card: React.FC<Item> = ({
           </span>
           </Link>
         <div className="flex items-center mt-2.5">
-        <span className="text text-xl font-sans font-bold text-gray-900 dark:text-white">
+        <span className="text text-xl font-sans font-bold text-gray-900">
             ${price}
           </span>
         </div>
