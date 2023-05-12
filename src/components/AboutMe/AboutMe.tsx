@@ -186,16 +186,16 @@ const AboutMe: React.FC<AboutMeProps> = () => {
                   </svg>
                 </div>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  <a href="mailto:gerva.jacob.tropini@gmail.com"> Email: gerva.jacob.tropini@gmail.com</a>
+                  <a href="mailto:gerva.jacob.tropini@gmail.com">- Email: gerva.jacob.tropini@gmail.com</a>
                 </p>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  <a href="https://www.linkedin.com/in/gervasio-jacob/">LinkedIn: gervajac</a>
+                  <a href="https://www.linkedin.com/in/gervasio-jacob/">- LinkedIn: gervajac</a>
                 </p>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  <a href="https://github.com/gervajac">Github: gervajac</a>
+                  <a href="https://github.com/gervajac">- Github: gervajac</a>
                 </p>
                 <p className="text-base leading-6 mt-6 text-center text-gray-600 sm:w-96 w-full">
-                  <a href="https://gervajacportfolio.netlify.app/">Portfolio: gervajacportfolio.netlify.app/</a>
+                  <a href="https://gervajacportfolio.netlify.app/">- Portfolio: gervajacportfolio.netlify.app/</a>
                 </p>
               </div>
             </div>
